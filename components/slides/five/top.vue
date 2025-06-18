@@ -1,12 +1,12 @@
 <template>
-    <div class="flex flex-col md:flex-row items-center justify-between bg-gray-100 p-8 rounded-lg shadow-lg">
+    <div class="flex flex-col md:flex-row items-center justify-between bg-gray-100 p-8 rounded-lg shadow-lg py-4">
       <!-- القسم الأول: النص الدعائي -->
       <div class="w-full md:w-1/2 text-center md:text-left mb-6 md:mb-0 mx-2">
         <h2 class="text-2xl font-bold text-primary mb-4">
-          {{ $t('Welcome to Shams Real Estate and Construction!') }}
+          {{ $t('Welcome to Iqdam academy for education!') }}
         </h2>
         <p class="text-gray-700">
-          {{ $t('We provide premium real estate solutions and construction services tailored to your needs.') }}
+          {{ $t('Iqdam Educational Academy is an innovative educational academy that aims to enable individuals to achieve their educational and professional goals in a modern and effective manner.') }}
         </p>
       </div>
   
@@ -17,12 +17,12 @@
           <input
             type="text"
             v-model="subject"
-            :placeholder="$t('Enter the subject')"
+            :placeholder="t('Enter the subject')"
             class="p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
           />
           <textarea
             v-model="message"
-            :placeholder="$t('Write your message here')"
+            :placeholder="t('Write your message here')"
             rows="4"
             class="p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
           ></textarea>
@@ -39,7 +39,10 @@
   
   <script setup>
   import { ref } from 'vue';
-  
+  import { useI18n } from 'vue-i18n'
+
+  const { t } = useI18n();
+
   // بيانات الاستمارة
   const subject = ref('');
   const message = ref('');
