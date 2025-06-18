@@ -1,12 +1,12 @@
 <template>
-  <div class="relative h-screen overflow-hidden" @wheel="handleScroll"
+  <div class="relative min-h-screen overflow-hidden" @wheel="handleScroll"
   @touchstart="handleTouchStart"
   @touchend="handleTouchEnd">
     <div class="transition-transform duration-700 ease-out"
       :style="{ transform: `translateY(-${currentIndex * 100}vh)` }">
       
 <!-- Slide 1 -->
-<div class="relative h-screen w-screen overflow-hidden">
+<div class="relative min-h-screen w-screen  overflow-hidden">
   <video
     class="absolute top-0 left-0 w-full h-full object-cover"
     src="/imgs/videoplayback.mp4"
@@ -17,7 +17,7 @@
   ></video>
 
   <!-- النص فوق الفيديو -->
-  <div class="absolute inset-0 flex flex-col items-center justify-center z-10">
+  <div class="absolute inset-0 flex flex-col items-center justify-center z-10 px-10">
     <h1 class="text-primary text-4xl md:text-6xl font-extrabold drop-shadow-lg text-center animate-fade" v-if="locale === 'ar'">
       أكاديمية <span class="text-second bold"> إقدام</span> التعليمية
     </h1>
@@ -38,20 +38,20 @@
       </div>
 
       <!-- Slide 3 -->
-      <div class="h-screen flex items-center justify-center overflow-y-auto "
+      <div class="min-h-screen flex items-center justify-center overflow-y-auto px-10"
        style="min-height: 100vh; background-image: url('/imgs/slide-three.jpg'); background-size: cover"
       :class="{ 'slide-in-left': currentIndex === 2, 'slide-in-right': currentIndex === 3 }">
         <SlidesThreeCenter />
       </div>
 
       <!-- Slide 4 (محتوى طويل) -->
-      <!-- <div class="h-screen flex items-center justify-center overflow-y-auto "
+     <div class="min-h-screen flex items-center justify-center overflow-y-auto "
        style="min-height: 100vh; background-image: url('/imgs/slide-tow.jpg'); background-size: cover"
       :class="{ 'slide-in-left': currentIndex === 3, 'slide-in-right': currentIndex === 4 }">
         <SlidesFourCenter />
-      </div> -->
+      </div>
       <!-- Slide 5 -->
-      <!-- <div class="h-screen flex items-center justify-center overflow-y-auto w-full"
+      <!-- <div class="min-h-screen flex items-center justify-center overflow-y-auto w-full"
        style="min-height: 100vh; background-image: url('/imgs/building.jpg'); background-size: cover"
       :class="{ 'slide-in-left': currentIndex === 4, 'slide-in-right': currentIndex === 5 }">
     
@@ -109,7 +109,7 @@ const handleTouchEnd = (event) => {
 };
 
 const checkIfAtEdge = (event) => {
-  const currentSlide = event.target.closest('.h-screen');
+  const currentSlide = event.target.closest('.min-h-screen');
   const atTop = currentSlide.scrollTop === 0;
   const atBottom = currentSlide.scrollHeight - currentSlide.scrollTop === currentSlide.clientHeight;
   isAtEdge.value = atTop || atBottom;
@@ -137,7 +137,7 @@ const goToSlide = (index) => {
 </script>
 
 <style scoped>
-div.h-screen {
+div.min-h-screen {
   height: 100vh;
   background-size: cover;
   background-position: center;
