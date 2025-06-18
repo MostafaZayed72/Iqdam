@@ -51,12 +51,12 @@
         <SlidesFourCenter />
       </div>
       <!-- Slide 5 -->
-      <!-- <div class="min-h-screen flex items-center justify-center overflow-y-auto w-full"
+      <div class="min-h-screen flex items-center justify-center overflow-y-auto w-full"
        style="min-height: 100vh; background-image: url('/imgs/building.jpg'); background-size: cover"
       :class="{ 'slide-in-left': currentIndex === 4, 'slide-in-right': currentIndex === 5 }">
     
         <SlidesFiveCenter />
-      </div> -->
+      </div> 
     </div>
 
     <!-- Indicators on the side -->
