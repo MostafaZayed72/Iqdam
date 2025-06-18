@@ -1,65 +1,45 @@
 <template>
-  <div>
-    <h1 class="text-white text-center text-3xl font-bold ">{{ $t('Our Departments') }}</h1>
-    <div class="flex justify-center items-center gap-8 flex-wrap mt-10">
-      <!-- المربعات للأقسام -->
-      <div 
-        v-for="(section, index) in sections" 
-        :key="section.id" 
-        :class="sections.length === 2 ? 'col-span-2 md:col-span-1' : ''"
-        class="relative group rounded-lg overflow-hidden shadow-lg cursor-pointer w-full max-w-xs"
-        @click="navigateToDepartment(section.id)"
-      >
-        <img :src="section.imageUrl" :alt="section.titleAr" class="w-full h-48 object-cover">
-        <div class="absolute inset-0 bg-gray-900 bg-opacity-0 group-hover:bg-opacity-80 transition duration-300 flex items-center justify-center">
-          <p class=" text-lg opacity-0 group-hover:opacity-100 transition duration-300 text-center  text-primary bg-second rounded-full py-2 px-4 font-bold">
-            {{ $t('Go to department') }}
-          </p>
-        </div>
-        <div class="p-4 text-center bg-primary">
-          <h3 class="text-lg font-semibold">{{ section.titleAr }}</h3>
-        </div>
+  <div class="py-12 px-4 min-h-screen mt-48">
+    <!-- عنوان الصفحة -->
+    <div class="text-center mb-12">
+      <h1 class="text-3xl font-bold text-yellow-600 bg-yellow-100 inline-block px-6 py-2 rounded-lg shadow">
+        {{$t('Parent services')}}
+      </h1>
+    </div>
+
+    <!-- شبكة البطاقات -->
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-2 max-w-4xl mx-auto">
+      <!-- بطاقة 1 -->
+      <div class="bg-slate-200 rounded-2xl shadow-md p-6 text-center hover:shadow-xl transition">
+        <img src="https://cdn-icons-png.flaticon.com/512/2972/2972203.png" class="w-20 mx-auto mb-4" alt="تقارير دورية" />
+        <h2 class="text-xl font-semibold mb-2">{{$t('Periodic reports and academic follow-up')}}</h2>
+        <p class="text-gray-600 text-sm">{{$t('Submit detailed reports on academic performance on a regular basis.')}}</p>
+      </div>
+
+      <!-- بطاقة 2 -->
+      <div class="bg-slate-200 rounded-2xl shadow-md p-6 text-center hover:shadow-xl transition">
+        <img src="https://cdn-icons-png.flaticon.com/512/1256/1256650.png" class="w-20 mx-auto mb-4" alt="مقابلات مع المعلمين" />
+        <h2 class="text-xl font-semibold mb-2">{{$t('Personal interviews with teachers')}}</h2>
+        <p class="text-gray-600 text-sm">{{$t('Providing the opportunity to meet directly with teachers to follow up on children.')}}</p>
+      </div>
+
+      <!-- بطاقة 3 -->
+      <div class="bg-slate-200 rounded-2xl shadow-md p-6 text-center hover:shadow-xl transition">
+        <img src="https://cdn-icons-png.flaticon.com/512/927/927567.png" class="w-20 mx-auto mb-4" alt="ترجمة المناهج" />
+        <h2 class="text-xl font-semibold mb-2">{{$t('Translation of curricula and lessons')}}</h2>
+        <p class="text-gray-600 text-sm">{{$t('Translate educational content when needed to ensure full understanding.')}}</p>
+      </div>
+
+      <!-- بطاقة 4 -->
+      <div class="bg-slate-200 rounded-2xl shadow-md p-6 text-center hover:shadow-xl transition">
+        <img src="https://cdn-icons-png.flaticon.com/512/4140/4140051.png" class="w-20 mx-auto mb-4" alt="دعم نفسي" />
+        <h2 class="text-xl font-semibold mb-2">{{$t('Psychological and social support for children')}}</h2>
+        <p class="text-gray-600 text-sm">{{$t('Providing psychosocial support sessions to promote mental health.')}}</p>
       </div>
     </div>
   </div>
 </template>
 
-
-
 <script setup>
-import { ref, onMounted } from 'vue';
-import axios from 'axios';
-import { useRouter } from 'vue-router';
-
-const sections = ref([]);
-const router = useRouter();
-
-// جلب البيانات من API
-const fetchDepartments = async () => {
-  try {
-    const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/Departments/GetDepartments`);
-    sections.value = response.data.data; // تخزين البيانات في المتغير
-  } catch (error) {
-    console.error('Error fetching departments:', error);
-  }
-};
-
-// التوجيه عند الضغط على المربع
-const navigateToDepartment = (id) => {
-  router.push(`/departments/${id}`);
-};
-
-// استدعاء الدالة عند تحميل الكومبوننت
-onMounted(fetchDepartments);
+// لا حاجة لمنطق حاليًا
 </script>
-
-<style scoped>
-.group:hover .group-hover\:bg-opacity-80 {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-/* تأكد من أن النص يظهر عند الـ hover */
-.group:hover .group-hover\:opacity-100 {
-  opacity: 1 !important;
-}
-</style>
