@@ -4,8 +4,11 @@
             <!-- القسم الأول: شعار الموقع -->
             <div class="flex flex-col items-center md:items-start">
                 <img src="/imgs/logo.png" alt="Site Logo" class="h-20 w-20 rounded-full mb-4" />
-                <p class="text-sm md:text-base text-center md:text-left">
-                    &copy; {{ new Date().getFullYear() }} {{ $t('All rights reserved to Shams.') }}
+                <p class="text-sm md:text-base text-center md:text-left" v-if=" locale == 'en'">
+                    &copy; {{ new Date().getFullYear() }} {{ $t('All rights reserved to Iqdam.') }}
+                </p>
+                <p class="text-sm md:text-base text-center md:text-left" v-else>
+                    {{ $t('All rights reserved to Iqdam.') }}   {{ new Date().getFullYear() }}&copy;
                 </p>
             </div>
 
@@ -14,25 +17,26 @@
                 <h2 class="text-lg font-bold mb-4">{{ $t('Quick Links') }}</h2>
                 <ul class="space-y-2">
                     <li>
-                        <nuxt-link to="/contact" class="hover:underline hover:text-green-300">
-                            {{ $t('Contact Us') }}
+                        <nuxt-link to="/features" class="hover:underline hover:text-green-300">
+                            {{ $t('Features') }}
                         </nuxt-link>
                     </li>
                     <li>
-                        <nuxt-link to="/about" class="hover:underline hover:text-green-300">
-                            {{ $t('About Us') }}
+                        <nuxt-link to="/programs" class="hover:underline hover:text-green-300">
+                            {{ $t('Programs') }}
                         </nuxt-link>
                     </li>
-                    <li>
+                     <li>
+                        <nuxt-link to="/registration" class="hover:underline hover:text-green-300">
+                            {{ $t('Registration') }}
+                        </nuxt-link>
+                    </li>
+                    <!-- <li>
                         <nuxt-link to="/privacy-policy" class="hover:underline hover:text-green-300">
                             {{ $t('Privacy Policy') }}
                         </nuxt-link>
-                    </li>
-                    <li>
-                        <nuxt-link to="/join-us" class="hover:underline hover:text-green-300">
-                            {{ $t('Join Us') }}
-                        </nuxt-link>
-                    </li>
+                    </li> -->
+                   
                 </ul>
             </div>
 

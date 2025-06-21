@@ -95,10 +95,13 @@ body {
 .p-iconfield .p-inputtext:not(:first-child) {
   background-color: white;
 }
-
 .p-datatable .p-datatable-tbody>tr:nth-child(even) {
   background-color: #f8f5f5;
   /* لون خلفية الصفوف الزوجية */
+}
+ 
+.dark .card{
+  background-color: #2a2a2b;
 }
 
 .dark .p-datatable .p-datatable-tbody>tr:nth-child(even) {
