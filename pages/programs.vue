@@ -23,12 +23,12 @@
           <div
             v-for="(program, idx) in entertainmentPrograms"
             :key="'entertainment-' + idx"
-            class="bg-white rounded-lg shadow-lg overflow-hidden"
+            class="card rounded-lg shadow-lg overflow-hidden"
           >
-            <img :src="program.image" class="w-full h-48 object-cover" />
+            <img :src="program.image" class="w-full h-48 rounded-xl" />
             <div class="p-4">
               <h3 class="text-xl font-bold mb-2 text-primary">{{ program.title }}</h3>
-              <p class="text-gray-600 text-sm">{{ program.description }}</p>
+              <p class="text-sm">{{ program.description }}</p>
             </div>
           </div>
         </div>
@@ -72,13 +72,13 @@ const tabs = computed(() => [
 // البرامج الترفيهية
 const entertainmentPrograms = computed(() => [
   {
-    title: t('Home'),
-    description: t('entertainment.trip.description'),
-    image: '/imgs/entertainment1.jpg'
+    title: t('Educational and recreational trips'),
+    description: t('The Academy organizes educational and recreational trips to cultural and natural sites within the Sultanate of Oman to enhance real-life learning'),
+    image: 'https://tripsegypt.net/storage/6614/conversions/rixos-seagate-sharm-ultra-all-inclusive-webp.webp'
   },
   {
-    title: t('entertainment.games.title'),
-    description: t('entertainment.games.description'),
+    title: t('Artistic and theatrical activities'),
+    description: t('Workshops for drawing, theater, and Arabic calligraphy develop creativity and reveal students talents in a fun environment'),
     image: '/imgs/entertainment2.jpg'
   },
   {
