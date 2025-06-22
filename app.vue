@@ -10,6 +10,7 @@
 import { ref, watch } from 'vue';
 import { useLocalStorage } from '@vueuse/core';
 import { useI18n } from 'vue-i18n';
+import 'leaflet/dist/leaflet.css'
 
 const { locale } = useI18n(); // استخدام useI18n للوصول إلى locale
 

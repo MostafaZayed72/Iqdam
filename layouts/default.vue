@@ -38,6 +38,11 @@
           to="/registration" active-class=" text-primary" exact-active-class=" text-orange-accent-2 underline">
           {{ $t('Registration') }}
         </NuxtLink>
+        <NuxtLink
+          class=" px-4 py-2 rounded-lg delayed cursor-pointer font-bold bg-primary  hover:text-primary"
+          to="/contact" active-class=" text-primary" exact-active-class=" text-orange-accent-2 underline">
+          {{ $t('Contact us') }}
+        </NuxtLink>
 
 
 
@@ -88,7 +93,7 @@
             class="flex items-center gap-2  px-4 py-2 rounded-lg delayed cursor-pointer font-bold text-slate-50 hover:text-primary"
             to="/programs" active-class=" text-primary" exact-active-class=" text-primary underline">
 
-            <Icon name="material-symbols:garden-cart" />
+            <Icon name="material-symbols:barcode-reader-outline" />
 
             {{ $t('Programs') }}
 
@@ -98,9 +103,18 @@
             class="flex items-center gap-2  px-4 py-2 rounded-lg delayed cursor-pointer font-bold text-slate-50 hover:text-primary"
             to="/registration" active-class=" text-primary" exact-active-class=" text-primary underline">
 
-            <Icon name="material-symbols:garden-cart" />
+            <Icon name="ic:twotone-app-registration" />
 
             {{ $t('Registration') }}
+
+          </NuxtLink>
+          <NuxtLink
+            class="flex items-center gap-2  px-4 py-2 rounded-lg delayed cursor-pointer font-bold text-slate-50 hover:text-primary"
+            to="/contact" active-class=" text-primary" exact-active-class=" text-primary underline">
+
+            <Icon name="ic:outline-connect-without-contact" />
+
+            {{ $t('Contact us') }}
 
           </NuxtLink>
 
