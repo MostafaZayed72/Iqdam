@@ -51,27 +51,58 @@ const teacherAdvantages = computed(() => [
     description: t('Teachers have extensive field experience in dealing with different educational levels and student needs')
   },
   {
-    title: t('Experienced'),
-    description: t('They have years of experience in interactive and modern teaching methods.')
+    title: t('High scientific efficiency'),
+    description: t('The teaching team holds advanced academic qualifications and is committed to continuous self-development in their areas of expertise')
   },
   {
-    title: t('Passionate and Friendly'),
-    description: t('We prioritize hiring educators who are passionate and create a safe learning environment.')
+    title: t('Innovative teaching methods'),
+    description: t('Teachers use modern teaching strategies based on interaction, motivation, and active learning')
+  }
+  ,
+  {
+    title: t('Individual care for students'),
+    description: t('The teacher cares for each student individually, and follows up on his academic and behavioral level in a supportive and motivating manner')
+  }
+  ,
+  {
+    title: t('Moral and educational values'),
+    description: t('Teachers have a sense of responsibility and discipline and believe in their educational mission to build a distinguished, aware generation')
+  }
+  ,
+  {
+    title: t('Effective communication with parents'),
+    description: t('Teachers maintain a constant and professional communication channel with parents to ensure the integrity of the educational process')
   }
 ])
 
 const selectionCriteria = computed(() => [
   {
-    title: t('Screening and Evaluation'),
-    description: t('We evaluate teachers through interviews, tests, and real classroom simulations.')
+    title: t('Verification of academic qualifications'),
+    description: t('Academic credentials and specializations are carefully verified to ensure specialization and competence')
   },
   {
-    title: t('Continuous Training'),
-    description: t('Teachers receive ongoing training and development in pedagogy and technology.')
-  },
+    title: t('Choosing educational competence'),
+    description: t('The candidate undergoes assessment tests in teaching methods, classroom management, and dealing with different student styles')
+  }
+  ,
   {
-    title: t('Feedback Driven'),
-    description: t('We assess teacher performance through regular student and parent feedback.')
+    title: t('Accurate personal interviews'),
+    description: t('We conduct interviews that measure personality, communication style, ethical values, and the ability to positively influence students')
+  }
+  ,
+  {
+    title: t('Trial and evaluation period'),
+    description: t('The teacher is given a realistic trial period during which his performance in the classroom is evaluated by educational supervisors')
+  }
+  ,
+  {
+    title: t('Continuous training and development'),
+    description: t('Even after selection, teachers are required to attend regular training workshops and professional development programs')
+  }
+  ,
+  {
+    title: t("Alignment with the Academy's vision"),
+    description: t("We ensure that the teacher is in line with the Academy's philosophy and educational mission in building an educated and leading generation")
   }
 ])
 </script>
