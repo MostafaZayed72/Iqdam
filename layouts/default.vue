@@ -43,6 +43,16 @@
           to="/contact" active-class=" text-primary" exact-active-class=" text-orange-accent-2 underline">
           {{ $t('Contact us') }}
         </NuxtLink>
+        <NuxtLink
+          class=" px-4 py-2 rounded-lg delayed cursor-pointer font-bold bg-primary  hover:text-primary"
+          to="/payment" active-class=" text-primary" exact-active-class=" text-orange-accent-2 underline">
+          {{ $t('Payment') }}
+        </NuxtLink>
+        <NuxtLink
+          class=" px-4 py-2 rounded-lg delayed cursor-pointer font-bold bg-primary  hover:text-primary"
+          to="/teachers" active-class=" text-primary" exact-active-class=" text-orange-accent-2 underline">
+          {{ $t('Teachers') }}
+        </NuxtLink>
 
 
 
@@ -115,6 +125,24 @@
             <Icon name="ic:outline-connect-without-contact" />
 
             {{ $t('Contact us') }}
+
+          </NuxtLink>
+          <NuxtLink
+            class="flex items-center gap-2  px-4 py-2 rounded-lg delayed cursor-pointer font-bold text-slate-50 hover:text-primary"
+            to="/payment" active-class=" text-primary" exact-active-class=" text-primary underline">
+
+            <Icon name="fluent:payment-48-filled" />
+
+            {{ $t('Payment') }}
+
+          </NuxtLink>
+          <NuxtLink
+            class="flex items-center gap-2  px-4 py-2 rounded-lg delayed cursor-pointer font-bold text-slate-50 hover:text-primary"
+            to="/teachers" active-class=" text-primary" exact-active-class=" text-primary underline">
+
+            <Icon name="noto:man-teacher-light-skin-tone" />
+
+            {{ $t('Teachers') }}
 
           </NuxtLink>
 
