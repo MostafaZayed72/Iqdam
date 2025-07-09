@@ -1,163 +1,62 @@
 <template>
-  <div :class="{ 'dark': isDarkMode }"
-    :style="{ direction: locale === 'ar' ? 'rtl' : 'ltr'}" class="relative" >
+  <div :class="{ 'dark': isDarkMode }" :style="{ direction: locale === 'ar' ? 'rtl' : 'ltr' }" class="relative bg-transparent">
 
-    <div class="mb-0 px-4   flex justify-between items-center   fixed w-full top-0 z-10  bg-">
-      <div class="flex items-center gap-4 py-2">
-        <Icon @click="toggleSidebar" name="iconamoon:menu-burger-horizontal"
-          class="md:hidden text-xl  cursor-pointer " />
-        <img src="/imgs/logo.png" class="w-40 h-40 cursor-pointer " alt="" style="border-radius: 50%;"
-          @click="navigateTo('/')">
+    <!-- Navbar -->
+    <div class="mb-0 px-4 flex justify-between items-center w-full bg-transparent py-1">
+      <div class="flex items-center gap-4">
+        <!-- Burger Icon for Small Screens -->
+        <Icon @click="toggleSidebar" name="iconamoon:menu-burger-horizontal" class="md:hidden text-3xl cursor-pointer" />
+
+        <!-- Logo -->
+        <img src="/imgs/logo.png" class="w-32 h-32 cursor-pointer" alt="" style="border-radius: 50%;" @click="navigateTo('/')">
       </div>
 
-      <!-- الروابط في الشاشات الكبيرة -->
-      <div class="links md:flex items-center gap-4 hidden ">
+      <!-- Main Links (Desktop) -->
+      <div class="links md:flex items-center gap-4 hidden">
         <NuxtLink
-          class=" px-4 py-2 rounded-lg delayed cursor-pointer font-bold bg-primary  hover:text-primary"
-          to="/" active-class=" text-primary" exact-active-class=" text-orange-accent-2 underline">
-          {{ $t('Home') }}
+          v-for="link in navLinks"
+          :key="link.to"
+          class="px-4 py-2 rounded-lg delayed cursor-pointer font-bold hover:text-primary"
+          :to="link.to"
+          active-class="text-secondary"
+          exact-active-class="text-secondary underline">
+          {{ $t(link.label) }}
         </NuxtLink>
-
-       
-        <NuxtLink
-          class=" px-4 py-2 rounded-lg delayed cursor-pointer font-bold bg-primary  hover:text-primary"
-          to="/features" active-class=" text-primary" exact-active-class=" text-orange-accent-2 underline">
-          {{ $t('Features') }}
-        </NuxtLink>
-
-
-
-        <NuxtLink
-          class=" px-4 py-2 rounded-lg delayed cursor-pointer font-bold bg-primary  hover:text-primary"
-          to="/programs" active-class=" text-primary" exact-active-class=" text-orange-accent-2 underline">
-          {{ $t('Programs') }}
-        </NuxtLink>
-
-        <NuxtLink
-          class=" px-4 py-2 rounded-lg delayed cursor-pointer font-bold bg-primary  hover:text-primary"
-          to="/registration" active-class=" text-primary" exact-active-class=" text-orange-accent-2 underline">
-          {{ $t('Registration') }}
-        </NuxtLink>
-        <NuxtLink
-          class=" px-4 py-2 rounded-lg delayed cursor-pointer font-bold bg-primary  hover:text-primary"
-          to="/contact" active-class=" text-primary" exact-active-class=" text-orange-accent-2 underline">
-          {{ $t('Contact us') }}
-        </NuxtLink>
-        <NuxtLink
-          class=" px-4 py-2 rounded-lg delayed cursor-pointer font-bold bg-primary  hover:text-primary"
-          to="/payment" active-class=" text-primary" exact-active-class=" text-orange-accent-2 underline">
-          {{ $t('Payment') }}
-        </NuxtLink>
-        <NuxtLink
-          class=" px-4 py-2 rounded-lg delayed cursor-pointer font-bold bg-primary  hover:text-primary"
-          to="/teachers" active-class=" text-primary" exact-active-class=" text-orange-accent-2 underline">
-          {{ $t('Teachers') }}
-        </NuxtLink>
-
-
-
-
-
-
       </div>
-      <div class="flex items-center ">
 
-
+      <!-- Controls -->
+      <div class="flex items-center">
         <LanguageSwitcher />
-
         <DarkModeToggle @click="toggleDarkMode" />
-        <!-- <FloatingActions /> -->
       </div>
     </div>
 
-    <!-- Burger Menu Transition for Small Screens -->
+    <!-- Sidebar Menu for Small Screens -->
     <transition name="slide">
-      
-      <div v-if="isSidebarOpen" class="md:hidden border-t-2 border-grey-darken-2 h-screen fixed  z-10 bg-primary">
-        <div class="flex items-center gap-4">
-        <Icon @click="toggleSidebar" name="iconamoon:menu-burger-horizontal"
-          class="md:hidden text-xl  cursor-pointer  mx-7 mt-4" />
-        
-      </div>
-        <div class="flex flex-col p-4">
+      <div v-if="isSidebarOpen" class="md:hidden fixed top-0 left-0 w-full h-screen z-10 bg-primary p-4">
+        <div class="flex justify-end">
+          <Icon @click="toggleSidebar" name="iconamoon:menu-burger-horizontal" class="text-3xl cursor-pointer" />
+        </div>
+
+        <div class="flex flex-col mt-4">
           <NuxtLink
-            class="flex items-center gap-2  px-4 py-2 rounded-lg delayed cursor-pointer font-bold text-slate-50 hover:text-primary"
-            to="/" active-class=" text-primary" exact-active-class=" text-primary underline">
-            <Icon name="material-symbols:family-home" />
-
-            {{ $t('Home') }}
+            v-for="link in navLinks"
+            :key="link.to"
+            @click="handleLinkClick"
+            class="flex items-center gap-2 px-4 py-2 rounded-lg delayed cursor-pointer font-bold text-slate-50 hover:text-primary"
+            :to="link.to"
+            active-class="text-secondary"
+            exact-active-class="text-secondary underline">
+            <Icon :name="link.icon" />
+            {{ $t(link.label) }}
           </NuxtLink>
-
-
-   
-          <NuxtLink
-            class="flex items-center gap-2  px-4 py-2 rounded-lg delayed cursor-pointer font-bold text-slate-50 hover:text-primary"
-            to="/features" active-class=" text-primary" exact-active-class=" text-primary underline">
-
-            <Icon name="fluent:branch-fork-32-filled" />
-
-            {{ $t('Features') }}
-
-          </NuxtLink>
-          <NuxtLink
-            class="flex items-center gap-2  px-4 py-2 rounded-lg delayed cursor-pointer font-bold text-slate-50 hover:text-primary"
-            to="/programs" active-class=" text-primary" exact-active-class=" text-primary underline">
-
-            <Icon name="material-symbols:barcode-reader-outline" />
-
-            {{ $t('Programs') }}
-
-          </NuxtLink>
-
-          <NuxtLink
-            class="flex items-center gap-2  px-4 py-2 rounded-lg delayed cursor-pointer font-bold text-slate-50 hover:text-primary"
-            to="/registration" active-class=" text-primary" exact-active-class=" text-primary underline">
-
-            <Icon name="ic:twotone-app-registration" />
-
-            {{ $t('Registration') }}
-
-          </NuxtLink>
-          <NuxtLink
-            class="flex items-center gap-2  px-4 py-2 rounded-lg delayed cursor-pointer font-bold text-slate-50 hover:text-primary"
-            to="/contact" active-class=" text-primary" exact-active-class=" text-primary underline">
-
-            <Icon name="ic:outline-connect-without-contact" />
-
-            {{ $t('Contact us') }}
-
-          </NuxtLink>
-          <NuxtLink
-            class="flex items-center gap-2  px-4 py-2 rounded-lg delayed cursor-pointer font-bold text-slate-50 hover:text-primary"
-            to="/payment" active-class=" text-primary" exact-active-class=" text-primary underline">
-
-            <Icon name="fluent:payment-48-filled" />
-
-            {{ $t('Payment') }}
-
-          </NuxtLink>
-          <NuxtLink
-            class="flex items-center gap-2  px-4 py-2 rounded-lg delayed cursor-pointer font-bold text-slate-50 hover:text-primary"
-            to="/teachers" active-class=" text-primary" exact-active-class=" text-primary underline">
-
-            <Icon name="noto:man-teacher-light-skin-tone" />
-
-            {{ $t('Teachers') }}
-
-          </NuxtLink>
-
-
-
-
-
         </div>
       </div>
     </transition>
 
     <Loader v-if="loading" />
-    <main class="p-0 ">
+    <main class="p-0">
       <slot />
-
     </main>
   </div>
 </template>
@@ -165,85 +64,70 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount, computed, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import { useLocalStorage } from '@vueuse/core'; // استيراد useLocalStorage
+import { useLocalStorage } from '@vueuse/core';
 
 const { locale } = useI18n();
 const loading = ref(true);
 const router = useRouter();
 
-
 const isDarkMode = ref(false);
+const isSidebarOpen = ref(false);
+const token = useLocalStorage('token', null);
+const userID = ref();
+const roles = ref();
 
-// استرجاع وضعية اللون المحفوظة
+const navLinks = [
+  { to: '/', label: 'Home', icon: 'material-symbols:family-home' },
+  { to: '/features', label: 'Features', icon: 'fluent:branch-fork-32-filled' },
+  { to: '/programs', label: 'Programs', icon: 'material-symbols:barcode-reader-outline' },
+  { to: '/registration', label: 'Registration', icon: 'ic:twotone-app-registration' },
+  { to: '/contact', label: 'Contact us', icon: 'ic:outline-connect-without-contact' },
+  { to: '/payment', label: 'Payment', icon: 'fluent:payment-48-filled' },
+  { to: '/teachers', label: 'Teachers', icon: 'noto:man-teacher-light-skin-tone' },
+];
+
 onMounted(() => {
   const savedColorMode = localStorage.getItem('colorMode');
   if (savedColorMode === 'dark' || savedColorMode === 'light') {
     isDarkMode.value = savedColorMode === 'dark';
     document.body.classList.toggle('dark', isDarkMode.value);
   }
+
+  checkToken();
+  loading.value = false;
+  userID.value = localStorage.getItem("userID");
+  roles.value = localStorage.getItem("roles");
+  window.addEventListener('storage', handleStorageChange);
+  document.addEventListener('click', closeDropdownOnClickOutside);
 });
 
-// تحديد صورة الخلفية بناءً على وضعية الوضع الداكن
-const backgroundImage = computed(() => {
-  return isDarkMode.value
-    ? 'url(/imgs/dark.jpg)'  // صورة الخلفية في الوضع الداكن
-    : 'url(/imgs/light.jpg)'; // صورة الخلفية في الوضع العادي
+onBeforeUnmount(() => {
+  window.removeEventListener('storage', handleStorageChange);
+  document.removeEventListener('click', closeDropdownOnClickOutside);
 });
 
-// دالة لتبديل الوضع الداكن
 const toggleDarkMode = () => {
   isDarkMode.value = !isDarkMode.value;
   localStorage.setItem('colorMode', isDarkMode.value ? 'dark' : 'light');
   document.body.classList.toggle('dark', isDarkMode.value);
 };
 
-const token = useLocalStorage('token', null); // "token" هو اسم المفتاح و "null" هو القيمة الافتراضية
-const userID = ref()
-const roles = ref()
-// دالة التحقق من التوكن
+const toggleSidebar = () => {
+  isSidebarOpen.value = !isSidebarOpen.value;
+};
+
+const handleLinkClick = () => {
+  isSidebarOpen.value = false;
+};
+
 const checkToken = () => {
-  if (!token.value) {
-    // إذا لم يكن هناك توكن في الـ localStorage، يتم تعيين القيمة الافتراضية
-    token.value = localStorage.getItem('token');
-  }
+  if (!token.value) token.value = localStorage.getItem('token');
 };
 
-
-// مراقبة التوكن وتحديث حالة token بناءً عليه
-watch(token, (newToken) => {
-  if (newToken) {
-    // إذا كان هناك توكن، يمكنك تنفيذ عمليات معينة
-    console.log("تم تسجيل الدخول");
-  } else {
-    // إذا لم يكن هناك توكن، تنفيذ عمليات أخرى مثل توجيه المستخدم إلى صفحة التسجيل
-    console.log("تم تسجيل الخروج");
-  }
-});
-
-// إضافة مستمع لحدث storage في متصفح
 const handleStorageChange = (event) => {
-  if (event.key === 'token') {
-    // عند تغيير قيمة التوكن في localStorage
-    token.value = event.newValue;
-  }
+  if (event.key === 'token') token.value = event.newValue;
 };
 
-onMounted(() => {
-  checkToken();
-  loading.value = false;
-  userID.value = localStorage.getItem("userID")
-  roles.value = localStorage.getItem("roles")
-
-  // الاستماع إلى تغييرات localStorage
-  window.addEventListener('storage', handleStorageChange);
-});
-
-onBeforeUnmount(() => {
-  // إزالة مستمع الحدث عند إلغاء تحميل الصفحة
-  window.removeEventListener('storage', handleStorageChange);
-});
-
-// التحكم في حالة الـ loading عند التنقل بين الصفحات
 router.beforeEach((to, from, next) => {
   loading.value = true;
   next();
@@ -253,50 +137,13 @@ router.afterEach(() => {
   loading.value = false;
 });
 
-const isSidebarOpen = ref(false);
-const isDropdownOpen = ref(false);
-
-const toggleSidebar = () => {
-  isSidebarOpen.value = !isSidebarOpen.value;
-}
-
-const toggleDropdown = () => {
-  isDropdownOpen.value = !isDropdownOpen.value;
-}
-
-// إغلاق القائمة عند النقر خارجها
 const closeDropdownOnClickOutside = (event) => {
   const dropdown = document.querySelector('.relative');
-  const toggleButton = event.target.closest('h1'); // عنصر النقر لفتح القائمة
-  if (dropdown && !dropdown.contains(event.target) && !toggleButton) {
+  if (dropdown && !dropdown.contains(event.target)) {
     isDropdownOpen.value = false;
   }
 };
-
-onMounted(() => {
-  document.addEventListener('click', closeDropdownOnClickOutside);
-});
-
-onBeforeUnmount(() => {
-  document.removeEventListener('click', closeDropdownOnClickOutside);
-});
-
-const route = useRoute();
-
-// للتحقق إذا كان الرابط الحالي يحتوي على كلمة "signup" وتعيين الـ active
-const isSignupActive = computed(() => route.path.endsWith('signup'));
-
-// للتحقق إذا كان أي مسار يحتوي على "signup"
-const isSignupSectionActive = computed(() => {
-  return route.path.includes('signup');
-});
-
-// للتحقق إذا كان الرابط الحالي هو "yourNurse"
-const isYourNurseActive = computed(() => route.path.startsWith('/yourNurse'));
 </script>
-
-
-
 
 <style scoped>
 body.dark {
@@ -315,74 +162,7 @@ body.dark {
   transform: translateX(-100%);
 }
 
-.slide-enter-to,
-.slide-leave {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.slide-enter {
-  opacity: 0;
-  transform: translateX(-20px);
-}
-
-.dark .p-menubar .p-menubar-root-list {
-  color: white;
-}
-
-.p-menuitem {
-  color: black;
-}
-
-.dark .p-menuitem {
-  color: white;
-}
-
-.p-menubar {
-  color: white;
-}
-
-.relative {
-  position: relative;
-}
-
-.absolute {
-  position: absolute;
-}
-
-.z-10 {
-  z-index: 10;
-}
-
-.bg-white {
-  background-color: white;
-}
-
-.text-black {
-  color: black;
-}
-
-.shadow-lg {
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-}
-
-.rounded {
-  border-radius: 0.25rem;
-}
-
-.hover\:bg-gray-100:hover {
-  background-color: #f7fafc;
-}
-
-.w-full {
-  width: 100%;
-}
-
-.mt-2 {
-  margin-top: 0.5rem;
-}
-
-.right-0 {
-  right: 0;
+.text-secondary {
+  color: #ffb703 !important;
 }
 </style>
