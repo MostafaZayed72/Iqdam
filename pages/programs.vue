@@ -28,17 +28,17 @@
 
       <div v-if="activeTab === 1">
         <!-- البرامج التعليمية -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1  gap-6">
           <div v-for="(program, idx) in educationalPrograms" :key="'educational-' + idx"
             class="card rounded-lg shadow-lg overflow-hidden">
-            <img :src="program.image" class="w-full h-48 rounded-xl" />
+            <img :src="program.image" class="w-full h-48 md:h-[400px] rounded-xl" />
             <div class="p-4">
-              <h3 class="text-xl font-bold mb-2 text-primary">{{ program.title }}</h3>
-              <p class=" text-sm">{{ program.description }}</p>
+              <h3 class="text-3xl font-bold mb-2 text-primary text-center">{{ program.title }}</h3>
+              <p class=" text-xl font-bold text-center">{{ program.description }}</p>
             </div>
           </div>
         </div>
-        <h1 class="text-center mx-auto w-full mt-10">{{ $t('Our education is project-based, with monthly projects within each subject, and all subjects integrated into one project.We encourage teamwork, innovation, and personal and social development.There are social skills development courses, programs for values ​​and positive behavior, as well as workshops for time management, problem solving, and leadership.') }}</h1>
+        <h1 class="text-center mx-auto w-full mt-10 text-xl font-bold">{{ $t('Our education is project-based, with monthly projects within each subject, and all subjects integrated into one project.We encourage teamwork, innovation, and personal and social development.There are social skills development courses, programs for values ​​and positive behavior, as well as workshops for time management, problem solving, and leadership.') }}</h1>
       </div>
 
     </div>
