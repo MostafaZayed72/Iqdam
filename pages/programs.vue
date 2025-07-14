@@ -38,7 +38,7 @@
             </div>
           </div>
         </div>
-        <h1 class="text-center mx-auto w-full mt-10 text-xl font-bold">{{ $t('Our education is project-based, with monthly projects within each subject, and all subjects integrated into one project.We encourage teamwork, innovation, and personal and social development.There are social skills development courses, programs for values ​​and positive behavior, as well as workshops for time management, problem solving, and leadership.') }}</h1>
+        <h1  class="text-center text-blue-950 mx-auto w-full mt-10 text-xl font-bold bg-second p-2 rounded-xl">{{ $t('Our education is project-based, with monthly projects within each subject, and all subjects integrated into one project.We encourage teamwork, innovation, and personal and social development.There are social skills development courses, programs for values ​​and positive behavior, as well as workshops for time management, problem solving, and leadership.') }}</h1>
       </div>
 
     </div>
