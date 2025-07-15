@@ -9,7 +9,7 @@
 <div class="relative min-h-screen w-screen  overflow-hidden">
   <!-- <video
     class="absolute top-0 left-0 w-full h-full object-cover"
-    src="/imgs/videoplayback.mp4"
+    src="/imgs/myvideo.mp4"
     autoplay
     loop
     muted
