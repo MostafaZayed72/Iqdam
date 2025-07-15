@@ -7,14 +7,14 @@
       
 <!-- Slide 1 -->
 <div class="relative min-h-screen w-screen  overflow-hidden">
-  <!-- <video
+  <video
     class="absolute top-0 left-0 w-full h-full object-cover"
-    src="/imgs/myvideo.mp4"
+    src="/imgs/http://res.cloudinary.com/dmsauhps3/video/upload/v1752599332/w9vitsxhxennkidyqwqt.mp4"
     autoplay
     loop
     muted
     playsinline
-  ></video> -->
+  ></video>
 
   <!-- النص فوق الفيديو -->
   <div class="absolute inset-0 flex flex-col items-center justify-center z-10 px-10">
