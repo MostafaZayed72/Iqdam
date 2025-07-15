@@ -3,6 +3,11 @@ import Aura from '@primevue/themes/aura';
 
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
+  runtimeConfig: {
+     public: {
+      CLOUDINARY_CLOUD_NAME: process.env.NUXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
+      CLOUDINARY_UPLOAD_PRESET: process.env.NUXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET
+    }},
   devtools: { enabled: true },
   modules: [
     '@primevue/nuxt-module',

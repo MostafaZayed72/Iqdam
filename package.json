@@ -23,6 +23,7 @@
     "@vueuse/nuxt": "^11.1.0",
     "axios": "^1.7.7",
     "country-state-city": "^3.2.1",
+    "formidable": "^3.5.4",
     "leaflet": "^1.9.4",
     "nuxt": "^3.13.2",
     "nuxt-swiper": "^2.0.0",
@@ -34,6 +35,7 @@
     "vuetify-nuxt-module": "^0.18.3"
   },
   "devDependencies": {
-    "@primevue/nuxt-module": "^4.0.7"
+    "@primevue/nuxt-module": "^4.0.7",
+    "@types/formidable": "^3.4.5"
   }
 }

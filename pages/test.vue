@@ -1,43 +1,69 @@
 <template>
-  <div class="container mx-auto p-4">
-    <h1 class="text-2xl font-bold mb-4">قائمة العيادات</h1>
+  <div class="p-8 mt-48">
+    <h1 class="text-2xl font-bold mb-4">📤 رفع صورة أو فيديو</h1>
 
-    <!-- عرض البيانات -->
-    <div v-if="clinics.length" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      <div 
-        v-for="clinic in clinics" 
-        :key="clinic.id" 
-        class="p-4 border rounded-lg shadow hover:shadow-lg transition">
-        <h2 class="text-xl font-semibold">{{ clinic.clinicName }}</h2>
-        <p class="text-gray-600">العنوان: {{ clinic.address }}</p>
-        <p class="text-gray-500 text-sm">التواصل: {{ clinic.contact }}</p>
+    <input type="file" @change="handleUpload" accept="image/*,video/*" />
+
+    <div v-if="uploading" class="mt-2 text-blue-600">جاري الرفع...</div>
+
+    <div v-if="fileUrl" class="mt-4">
+      <div v-if="isImage(fileUrl)">
+        <img :src="fileUrl" class="max-w-sm rounded shadow" />
       </div>
+      <div v-else-if="isVideo(fileUrl)">
+        <video controls class="max-w-sm rounded shadow">
+          <source :src="fileUrl" />
+        </video>
+      </div>
+      <p class="mt-2 text-gray-700 break-words text-sm">📎 {{ fileUrl }}</p>
     </div>
-
-    <!-- عند عدم وجود بيانات -->
-    <p v-else class="text-center text-gray-500">لا توجد بيانات متاحة حاليا.</p>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+const uploading = ref(false)
+const fileUrl = ref('')
 
-// تعريف متغير لتخزين بيانات العيادات
-const clinics = ref([])
+const cloudName = useRuntimeConfig().public.CLOUDINARY_CLOUD_NAME
+const uploadPreset = useRuntimeConfig().public.CLOUDINARY_UPLOAD_PRESET
 
-// جلب البيانات من الـ API
-onMounted(async () => {
+const handleUpload = async (event) => {
+  const file = event.target.files[0]
+  if (!file) return
+
+  uploading.value = true
+
+  const formData = new FormData()
+  formData.append('file', file)
+  formData.append('upload_preset', uploadPreset)
+
   try {
-    const { data } = await useFetch('https://www.clinicreservation.somee.com/api/Clinic/GetAll')
-    clinics.value = data.value || [] // تحديث البيانات بناءً على الاستجابة
-  } catch (error) {
-    console.error('حدث خطأ أثناء جلب البيانات:', error)
-  }
-})
-</script>
+    const res = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/upload`, {
+      method: 'POST',
+      body: formData
+    })
 
-<style scoped>
-.container {
-  max-width: 1200px;
+    const data = await res.json()
+
+    if (data.secure_url) {
+      fileUrl.value = data.secure_url
+
+      // 📝 حفظ الرابط في ملف JSON عبر API
+      await $fetch('/api/media', {
+        method: 'POST',
+        body: {
+          url: data.secure_url,
+          type: data.resource_type // 'image' أو 'video'
+        }
+      })
+    }
+  } catch (error) {
+    console.error('خطأ أثناء الرفع:', error)
+  } finally {
+    uploading.value = false
+  }
 }
-</style>
+
+const isImage = (url) => /\.(jpe?g|png|gif|bmp|webp)$/i.test(url)
+const isVideo = (url) => /\.(mp4|webm|ogg|mov)$/i.test(url)
+</script>
