@@ -6,6 +6,8 @@
 .cache
 dist
 
+public/imgs/videoplayback.mp4
+
 # Node dependencies
 node_modules
 
