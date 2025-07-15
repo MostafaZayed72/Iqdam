@@ -24,8 +24,9 @@
 const uploading = ref(false)
 const fileUrl = ref('')
 
-const cloudName = useRuntimeConfig().public.CLOUDINARY_CLOUD_NAME
-const uploadPreset = useRuntimeConfig().public.CLOUDINARY_UPLOAD_PRESET
+const config = useRuntimeConfig()
+const cloudName = config.public.CLOUDINARY_CLOUD_NAME
+const uploadPreset = config.public.CLOUDINARY_UPLOAD_PRESET
 
 const handleUpload = async (event) => {
   const file = event.target.files[0]
@@ -44,11 +45,9 @@ const handleUpload = async (event) => {
     })
 
     const data = await res.json()
+    fileUrl.value = data.secure_url
 
     if (data.secure_url) {
-      fileUrl.value = data.secure_url
-
-      // 📝 حفظ الرابط في ملف JSON عبر API
       await $fetch('/api/media', {
         method: 'POST',
         body: {
@@ -57,8 +56,8 @@ const handleUpload = async (event) => {
         }
       })
     }
-  } catch (error) {
-    console.error('خطأ أثناء الرفع:', error)
+  } catch (err) {
+    console.error('رفع فشل:', err)
   } finally {
     uploading.value = false
   }
