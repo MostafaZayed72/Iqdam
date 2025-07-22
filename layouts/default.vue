@@ -96,6 +96,7 @@ const navLinks = [
   { to: '/contact', label: 'Contact us', icon: 'ic:outline-connect-without-contact' },
   { to: '/payment', label: 'Payment', icon: 'fluent:payment-48-filled' },
   { to: '/teachers', label: 'Teachers', icon: 'noto:man-teacher-light-skin-tone' },
+  { to: '/news', label: 'News', icon: 'material-symbols:breaking-news' },
 ];
 
 onMounted(() => {
