@@ -49,7 +49,7 @@
   
   // دالة إرسال البريد الإلكتروني
   const sendEmail = () => {
-    const mailtoLink = `mailto:M.abdu.abass@gmail.com?subject=${encodeURIComponent(subject.value)}&body=${encodeURIComponent(message.value)}`;
+    const mailtoLink = `mailto:akadimisultan@gmail.com?subject=${encodeURIComponent(subject.value)}&body=${encodeURIComponent(message.value)}`;
     window.location.href = mailtoLink;
   };
   </script>

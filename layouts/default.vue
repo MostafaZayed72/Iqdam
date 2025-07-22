@@ -2,14 +2,16 @@
   <div :class="{ 'dark': isDarkMode }" :style="{ direction: locale === 'ar' ? 'rtl' : 'ltr' }" class="">
 
     <!-- Navbar -->
-    <div class="mb-0 px-4 flex justify-between items-center w-full  py-1 fixed top-0 left-0 z-50 backdrop-blur-sm bg-white/30 dark:bg-black/30">
+    <div class="mb-0 px-4 flex justify-between items-center w-full  py-1  z-50 backdrop-blur-sm bg-white/30 dark:bg-black/30">
       <div class="flex items-center gap-4">
         <!-- Burger Icon for Small Screens -->
         <Icon @click="toggleSidebar" name="iconamoon:menu-burger-horizontal" class="md:hidden text-3xl cursor-pointer" />
 
         <!-- Logo -->
-        <img src="/imgs/logo.png" class="w-32 h-32 cursor-pointer" alt="" style="border-radius: 50%;" @click="navigateTo('/')">
-        <!-- Video Logo -->
+<div>
+          <img src="/imgs/logo.png" class="w-32 h-32 cursor-pointer" alt="" style="border-radius: 50%;" @click="navigateTo('/')">
+
+</div>        <!-- Video Logo -->
 <video
   src="/imgs/second-logo.mp4"
   autoplay

@@ -1,7 +1,7 @@
 <template>
   <div :class="{ 'dark': isDarkMode }" :style="{ direction: locale === 'ar' ? 'rtl' : 'ltr' }">
 
-    <div class="mb-0 px-4 bg-primary flex justify-between items-center py-2 shadow-xl sticky top-0 z-10 ">
+    <div class="mb-0 px-4 flex justify-between items-center w-full  py-1  z-50 backdrop-blur-sm bg-white/30 dark:bg-black/30 ">
       <div class="flex items-center gap-4">
         <Icon @click="toggleSidebar" name="iconamoon:menu-burger-horizontal"
           class="md:hidden text-xl  cursor-pointer text-white" />

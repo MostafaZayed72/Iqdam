@@ -46,13 +46,13 @@
                 <p>
                     {{ $t('Mail Us') }}:
                     <a href="mailto:support@example.com" class="underline text-green-300 hover:text-green-400">
-                        M.abdu.abass@gmail.com
+                        akadimisultan@gmail.com
                     </a>
                 </p>
                 <p class="mt-2">
                     {{ $t('Phone') }}: 
                     <a href="tel:+123456789" class="underline text-green-300 hover:text-green-400">
-                        +966508282809
+                        +96898179514
                     </a>
                 </p>
             </div>

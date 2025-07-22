@@ -7,8 +7,7 @@ export default defineNuxtConfig({
      public: {
       CLOUDINARY_CLOUD_NAME: process.env.NUXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
       CLOUDINARY_UPLOAD_PRESET: process.env.NUXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET,
-       SUPABASE_URL: process.env.SUPABASE_URL,
-    SUPABASE_KEY: process.env.SUPABASE_KEY
+ baseUrl: process.env.NUXT_BASE_URL
     }},
   devtools: { enabled: true },
   modules: [
