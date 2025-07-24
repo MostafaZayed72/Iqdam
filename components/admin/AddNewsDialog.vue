@@ -51,13 +51,12 @@
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue'
+import { ref, reactive, watch } from 'vue'
 
 const dialogOpen = ref(false)
 const error = ref('')
 const success = ref('')
 
-// إعداد نموذج البيانات
 const form = reactive({
   titleEn: '',
   titleAr: '',
@@ -67,20 +66,16 @@ const form = reactive({
   newsItemVideos: []
 })
 
-// إضافة صورة جديدة فارغة
 const addImage = () => {
   form.newsItemImages.push({ url: '', captionEn: '', captionAr: '' })
 }
 
-// إضافة فيديو جديد
 const addVideo = () => {
   form.newsItemVideos.push({ url: '', captionEn: '', captionAr: '' })
 }
 
-// إعداد متغيرات البيئة
 const config = useRuntimeConfig()
 
-// رفع صورة إلى Cloudinary
 const handleImageUpload = async (event, index) => {
   const file = event.target.files[0]
   if (!file) return
@@ -101,7 +96,6 @@ const handleImageUpload = async (event, index) => {
   }
 }
 
-// إرسال النموذج إلى الـ API
 const emit = defineEmits(['newsAdded'])
 
 const submitForm = async () => {
@@ -115,16 +109,20 @@ const submitForm = async () => {
       body: form,
     })
 
-    success.value = true
-    emit('newsAdded') // ← هنا التحديث المهم
-    dialogOpen.value = false
-    resetForm()
+    success.value = 'تمت إضافة الخبر بنجاح ✅'
+
+    // 🔄 انتظر لحظة قبل الإغلاق والتحديث
+    setTimeout(() => {
+      dialogOpen.value = false
+      emit('newsAdded')
+      resetForm()
+    }, 300)
+
   } catch (err) {
-    error.value = err?.data?.message || 'خطأ غير متوقع أثناء الإرسال'
+    error.value = err?.data?.message || 'فشل في الإضافة'
   }
 }
 
-// إعادة تعيين النموذج بعد الإرسال
 const resetForm = () => {
   form.titleEn = ''
   form.titleAr = ''

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- حقل البحث -->
+    <!-- 🔍 البحث -->
     <input
       v-model="search"
       @input="onSearch"
@@ -8,16 +8,16 @@
       class="border p-2 mb-4 rounded w-full max-w-md"
     />
 
-    <!-- جدول الأخبار -->
+    <!-- 📋 جدول الأخبار -->
     <div class="overflow-x-auto">
       <table class="w-max min-w-[1000px] border">
         <thead>
           <tr class="bg-gray-200 text-center text-black">
             <th class="p-2 border">#</th>
-            <th class="p-2 border">العنوان (عربي)</th>
-            <th class="p-2 border">العنوان (إنجليزي)</th>
-            <th class="p-2 border">الوصف (عربي)</th>
-            <th class="p-2 border">الوصف (إنجليزي)</th>
+            <th class="p-2 border">العنوان (ع)</th>
+            <th class="p-2 border">العنوان (EN)</th>
+            <th class="p-2 border">الوصف (ع)</th>
+            <th class="p-2 border">الوصف (EN)</th>
             <th class="p-2 border">تاريخ النشر</th>
             <th class="p-2 border">الوسائط</th>
             <th class="p-2 border">إجراءات</th>
@@ -30,9 +30,9 @@
             <td class="border p-2">{{ news.titleEn || '—' }}</td>
             <td class="border p-2">{{ news.descriptionAr || '—' }}</td>
             <td class="border p-2">{{ news.descriptionEn || '—' }}</td>
-            <td class="border p-2">{{ formatDate(news.publishDate) }}</td>
+            <td class="border p-2">{{ formatDate(news.publishedAt) }}</td>
             <td class="border p-2">
-              <button @click="viewMedia(news.id)" class="text-blue-600 underline">عرض الوسائط</button>
+              <button @click="viewMedia(news.id)" class="text-blue-600 underline">عرض</button>
             </td>
             <td class="border p-2">
               <button @click="startEdit(news)" class="text-yellow-600 hover:underline">✏ تعديل</button>
@@ -43,34 +43,24 @@
       </table>
     </div>
 
-    <!-- Pagination -->
+    <!-- 🔁 Pagination -->
     <div class="flex justify-center items-center mt-4 space-x-4 w-max min-w-[1000px]">
-      <button @click="prevPage" :disabled="currentPage === 1" class="px-4 py-1 rounded bg-gray-200 disabled:opacity-50">
-        ⬅ السابق
-      </button>
+      <button @click="prevPage" :disabled="currentPage === 1" class="px-4 py-1 rounded bg-gray-200 disabled:opacity-50">⬅ السابق</button>
       <span>صفحة {{ currentPage }}</span>
-      <button @click="nextPage" :disabled="!hasMore" class="px-4 py-1 rounded bg-gray-200 disabled:opacity-50">
-        التالي ➡
-      </button>
+      <button @click="nextPage" :disabled="!hasMore" class="px-4 py-1 rounded bg-gray-200 disabled:opacity-50">التالي ➡</button>
     </div>
 
-    <!-- الوسائط -->
+    <!-- 🖼 الوسائط -->
     <div v-if="media.length" class="mt-6">
       <h3 class="font-bold mb-2">الصور والفيديوهات:</h3>
       <div class="grid md:grid-cols-3 gap-4">
         <div v-for="item in media" :key="item.id" class="border p-2 rounded-xl">
-         <template v-if="item.mediaType === 'Image'">
-  <img :src="item.url" class="w-full h-64 object-cover rounded-xl" />
-</template>
-<template v-else>
-  <iframe
-    :src="getYoutubeEmbedUrl(item.url)"
-    class="w-full h-64 rounded-xl"
-    frameborder="0"
-    allowfullscreen
-  ></iframe>
-</template>
-
+          <template v-if="item.mediaType === 'Image'">
+            <img :src="item.url" class="w-full h-64 object-cover rounded-xl" />
+          </template>
+          <template v-else>
+            <iframe :src="getYoutubeEmbedUrl(item.url)" class="w-full h-64 rounded-xl" frameborder="0" allowfullscreen></iframe>
+          </template>
           <p class="text-sm mt-1">{{ item.captionAr || 'بدون عنوان' }}</p>
           <button @click="deleteMedia(item.id)" class="text-red-600 text-sm underline mt-1">🗑 حذف</button>
         </div>
@@ -82,7 +72,7 @@
       </div>
     </div>
 
-    <!-- Dialog إضافة صورة -->
+    <!-- 🖼 Dialog: إضافة صورة -->
     <div v-if="showAddImage" class="fixed inset-0 bg-black bg-opacity-40 flex justify-center items-center z-50">
       <div class="bg-white p-6 rounded-lg w-full max-w-md shadow-lg">
         <h2 class="text-lg font-bold mb-4">إضافة صورة</h2>
@@ -96,7 +86,7 @@
       </div>
     </div>
 
-    <!-- Dialog إضافة فيديو -->
+    <!-- 🎥 Dialog: إضافة فيديو -->
     <div v-if="showAddVideo" class="fixed inset-0 bg-black bg-opacity-40 flex justify-center items-center z-50">
       <div class="bg-white p-6 rounded-lg w-full max-w-md shadow-lg">
         <h2 class="text-lg font-bold mb-4">إضافة فيديو</h2>
@@ -110,6 +100,23 @@
       </div>
     </div>
 
+    <!-- ✏️ Dialog: تعديل خبر -->
+    <div v-if="showEditDialog" class="fixed inset-0 bg-black bg-opacity-40 flex justify-center items-center z-50">
+      <div class="bg-white p-6 rounded-lg w-full max-w-md shadow-lg">
+        <h2 class="text-lg font-bold mb-4">تعديل الخبر</h2>
+        <input v-model="editedNews.titleAr" placeholder="العنوان (عربي)" class="mb-2 border p-2 rounded w-full" />
+        <input v-model="editedNews.titleEn" placeholder="العنوان (إنجليزي)" class="mb-2 border p-2 rounded w-full" />
+        <textarea v-model="editedNews.descriptionAr" placeholder="الوصف (عربي)" class="mb-2 border p-2 rounded w-full" />
+        <textarea v-model="editedNews.descriptionEn" placeholder="الوصف (إنجليزي)" class="mb-2 border p-2 rounded w-full" />
+        <input type="date" v-model="editedNews.publishedAt" class="mb-2 border p-2 rounded w-full" />
+        <div class="flex justify-end gap-2 mt-4">
+          <button @click="showEditDialog = false" class="bg-gray-300 px-4 py-1 rounded">إلغاء</button>
+          <button @click="submitEdit" class="bg-yellow-600 text-white px-4 py-1 rounded">💾 حفظ</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ⏳ تحميل -->
     <Loader v-if="loader" />
   </div>
 </template>
@@ -117,28 +124,38 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 
+const config = useRuntimeConfig()
+
 const newsItems = ref([])
 const media = ref([])
-const search = ref('')
+const loader = ref(false)
 const currentPage = ref(1)
 const pageSize = 5
 const hasMore = ref(false)
-const loader = ref(false)
+const search = ref('')
 const selectedNewsId = ref(null)
+
 const showAddImage = ref(false)
 const showAddVideo = ref(false)
+const showEditDialog = ref(false)
 
 const newImage = ref({ file: null, captionAr: '', captionEn: '' })
 const newVideo = ref({ url: '', captionAr: '', captionEn: '' })
-
-const config = useRuntimeConfig()
+const editedNews = ref({
+  id: '',
+  titleAr: '',
+  titleEn: '',
+  descriptionAr: '',
+  descriptionEn: '',
+  publishedAt: ''
+})
 
 const fetchNews = async () => {
   loader.value = true
   try {
     const query = new URLSearchParams({
-      PageNumber: currentPage.value.toString(),
-      PageSize: pageSize.toString(),
+      PageNumber: currentPage.value,
+      PageSize: pageSize,
       Search: search.value
     })
     const response = await $fetch(`/api/NewsItems/GetAllMatching?${query}`, {
@@ -152,19 +169,14 @@ const fetchNews = async () => {
   }
 }
 
-const onSearch = () => {
-  currentPage.value = 1
-  fetchNews()
-}
-
 const viewMedia = async (newsId) => {
   selectedNewsId.value = newsId
   loader.value = true
   try {
     const query = new URLSearchParams({
       NewsItemId: newsId,
-      PageNumber: '1',
-      PageSize: '20',
+      PageNumber: 1,
+      PageSize: 20,
       Search: ''
     })
     const response = await $fetch(`/api/NewsMediaItems/GetAllMatching?${query}`, {
@@ -178,7 +190,7 @@ const viewMedia = async (newsId) => {
 }
 
 const deleteNews = async (id) => {
-  if (!confirm('هل أنت متأكد من حذف هذا الخبر؟')) return
+  if (!confirm('هل أنت متأكد من الحذف؟')) return
   loader.value = true
   try {
     await $fetch('/api/NewsItems/Delete', {
@@ -206,6 +218,28 @@ const deleteMedia = async (id) => {
   }
 }
 
+const startEdit = (news) => {
+  editedNews.value = { ...news }
+  if (editedNews.value.publishedAt)
+    editedNews.value.publishedAt = new Date(editedNews.value.publishedAt).toISOString().split('T')[0]
+  showEditDialog.value = true
+}
+
+const submitEdit = async () => {
+  loader.value = true
+  try {
+    await $fetch('/api/NewsItems/Update', {
+      baseURL: config.public.baseUrl,
+      method: 'PATCH',
+      body: editedNews.value
+    })
+    showEditDialog.value = false
+    fetchNews()
+  } finally {
+    loader.value = false
+  }
+}
+
 const onFileChange = (e) => {
   const file = e.target.files[0]
   if (file) newImage.value.file = file
@@ -216,12 +250,11 @@ const uploadImageToCloudinary = async (file) => {
   formData.append('file', file)
   formData.append('upload_preset', config.public.CLOUDINARY_UPLOAD_PRESET)
 
-  const response = await fetch(`https://api.cloudinary.com/v1_1/${config.public.CLOUDINARY_CLOUD_NAME}/image/upload`, {
+  const res = await fetch(`https://api.cloudinary.com/v1_1/${config.public.CLOUDINARY_CLOUD_NAME}/image/upload`, {
     method: 'POST',
     body: formData
   })
-  if (!response.ok) throw new Error('فشل رفع الصورة')
-  const data = await response.json()
+  const data = await res.json()
   return data.secure_url
 }
 
@@ -253,7 +286,7 @@ const submitImage = async () => {
 }
 
 const submitVideo = async () => {
-  if (!newVideo.value.url) return alert('ادخل رابط الفيديو')
+  if (!newVideo.value.url) return alert('أدخل رابط الفيديو')
   loader.value = true
   try {
     await $fetch('/api/NewsMediaItems/Add', {
@@ -279,13 +312,12 @@ const submitVideo = async () => {
 }
 
 const openAddImageDialog = () => {
-  showAddImage.value = true
   newImage.value = { file: null, captionAr: '', captionEn: '' }
+  showAddImage.value = true
 }
-
 const openAddVideoDialog = () => {
-  showAddVideo.value = true
   newVideo.value = { url: '', captionAr: '', captionEn: '' }
+  showAddVideo.value = true
 }
 
 const nextPage = () => {
@@ -298,10 +330,10 @@ const prevPage = () => {
     fetchNews()
   }
 }
-const getYoutubeEmbedUrl = (url) => {
-  if (!url) return ''
-  const match = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]+)/)
-  return match ? `https://www.youtube.com/embed/${match[1]}` : url
+
+const onSearch = () => {
+  currentPage.value = 1
+  fetchNews()
 }
 
 const formatDate = (date) => {
@@ -309,9 +341,18 @@ const formatDate = (date) => {
   return isNaN(d.getTime()) ? 'غير متوفر' : d.toLocaleDateString()
 }
 
+const getYoutubeEmbedUrl = (url) => {
+  const match = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]+)/)
+  return match ? `https://www.youtube.com/embed/${match[1]}` : url
+}
+
 onMounted(() => {
   fetchNews()
 })
+defineExpose({
+  fetchNews
+})
+
 </script>
 
 <style scoped>

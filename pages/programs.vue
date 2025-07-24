@@ -1,5 +1,6 @@
 <template>
-  <div class="p-4 max-w-7xl mx-auto mt-40">
+ <div style="background-image: url('/imgs/2.png'); min-height: 100vh; background-size: cover">
+   <div class="p-4 max-w-7xl mx-auto"  >
     <!-- التبويبات -->
     <div class="flex border-b mb-6">
       <button v-for="(tab, index) in tabs" :key="index" @click="activeTab = index" :class="[
@@ -14,13 +15,13 @@
     <div>
       <div v-if="activeTab === 0">
         <!-- البرامج الترفيهية -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1  gap-6">
           <div v-for="(program, idx) in entertainmentPrograms" :key="'entertainment-' + idx"
-            class="card rounded-lg shadow-lg overflow-hidden">
-            <img :src="program.image" class="w-full h-48 rounded-xl" />
+            class="card rounded-lg shadow-lg overflow-hidden bg-white">
+            <img :src="program.image" class="w-full h-48 md:h-[400px] " />
             <div class="p-4">
-              <h3 class="text-xl font-bold mb-2 text-primary">{{ program.title }}</h3>
-              <p class="text-sm">{{ program.description }}</p>
+              <h3 class="text-3xl font-bold mb-2 text-primary">{{ program.title }}</h3>
+              <p class="text-xl">{{ program.description }}</p>
             </div>
           </div>
         </div>
@@ -30,8 +31,8 @@
         <!-- البرامج التعليمية -->
         <div class="grid grid-cols-1  gap-6">
           <div v-for="(program, idx) in educationalPrograms" :key="'educational-' + idx"
-            class="card rounded-lg shadow-lg overflow-hidden">
-            <img :src="program.image" class="w-full h-48 md:h-[400px] rounded-xl" />
+            class="card rounded-lg shadow-lg overflow-hidden bg-white">
+            <img :src="program.image" class="w-full h-48 md:h-[400px] " />
             <div class="p-4">
               <h3 class="text-3xl font-bold mb-2 text-primary text-center">{{ program.title }}</h3>
               <p class=" text-xl font-bold text-center">{{ program.description }}</p>
@@ -43,6 +44,7 @@
 
     </div>
   </div>
+ </div>
 </template>
 
 <script setup>
@@ -93,17 +95,17 @@ const educationalPrograms = computed(() => [
   {
     title: t('International program for european students'),
     description: t('Aligning Omani curricula with European standards, special support in languages ​​(Arabic and English), and support units in mathematics and science (in English).'),
-    image: 'https://mitests.com/storage/uploads/all/otp2BqvwW47FRrsU1mQ3jKhOvXfSYwp1rBogMwYI.jpg'
+    image: '/programs/international-program.png'
   },
   {
     title: t('Learn Arabic for non-native speakers'),
     description: t('Through modern and interactive curricula, realistic communication activities, and life situations, at various levels (beginner - intermediate - advanced). We also offer programs for parents (upon request).'),
-    image: 'https://almawsoa.com/wp-content/uploads/2024/02/n7zZcBQ_result-1024x576.webp'
+    image: '/programs/تعلم اللغة العربية لغير الناطقين بها.png'
   },
   {
     title: t('Support for basic educational materials'),
     description: t('Mathematics (flexible curricula combining Arabic and English), Physics and Chemistry (equipped laboratories and experimental activities), Geography (interactive project-based lessons), English (developing reading, writing, speaking and listening)'),
-    image: 'https://static1.squarespace.com/static/64959c1091617327d9ef78bf/t/654ceefbbd1786097329890c/1699540731776/Squarespace+Homepage+-+2023-11-09T143824.163.png?format=1500w'
+    image: '/programs/دعم المواد التعليمية الأساسية.png'
   }
 ])
 </script>

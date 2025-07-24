@@ -67,7 +67,7 @@
     </transition>
 
     <Loader v-if="loading" />
-    <main class="p-0">
+    <main class="">
       <slot />
     </main>
   </div>
