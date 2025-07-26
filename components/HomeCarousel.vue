@@ -9,7 +9,7 @@
 <div class="relative min-h-screen w-screen  overflow-hidden">
   <video
     class="absolute top-0 left-0 w-full h-full object-cover"
-    src="http://res.cloudinary.com/dmsauhps3/video/upload/v1752599332/w9vitsxhxennkidyqwqt.mp4"
+    src="https://res.cloudinary.com/dmsauhps3/video/upload/v1752599332/w9vitsxhxennkidyqwqt.mp4"
     autoplay
     loop
     muted
