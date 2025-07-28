@@ -1,5 +1,6 @@
 <template>
-  <div class="min-h-screen flex items-center justify-center px-4 mt-40 w-50 mx-auto">
+  <div>
+    <div class="min-h-screen flex items-center justify-center px-4  w-50 mx-auto">
     <div class="w-full max-w-2xl card rounded-xl shadow-xl border-4  p-8 ">
       <h1 class="text-2xl font-bold mb-6 text-center text-primary dark:text-white">
         {{ $t('Register a new student') }}
@@ -32,6 +33,8 @@
         </div>
       </form>
     </div>
+  </div>
+  <payment class="my-10"/>
   </div>
 </template>
 

@@ -95,7 +95,7 @@ const fetchNews = async () => {
           const mediaQuery = new URLSearchParams({
             NewsItemId: item.id,
             PageNumber: '1',
-            PageSize: '1',
+            PageSize: '10',
             Search: ''
           })
 

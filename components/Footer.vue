@@ -45,13 +45,13 @@
                 <h2 class="text-lg font-bold mb-4">{{ $t('Contact Information') }}</h2>
                 <p>
                     {{ $t('Mail Us') }}:
-                    <a href="mailto:support@example.com" class="underline text-green-300 hover:text-green-400">
+                    <a href="mailto:akadimisultan@gmail.com" class="underline text-green-300 hover:text-green-400">
                         akadimisultan@gmail.com
                     </a>
                 </p>
                 <p class="mt-2">
                     {{ $t('Phone') }}: 
-                    <a href="tel:+123456789" class="underline text-green-300 hover:text-green-400">
+                    <a href="tel:+96898179514" class="underline text-green-300 hover:text-green-400">
                         +96898179514
                     </a>
                 </p>

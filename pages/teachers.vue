@@ -1,18 +1,13 @@
 <template>
-  <div class="p-4 max-w-4xl mx-auto mt-40">
+  <div class="p-4 max-w-4xl mx-auto ">
     <!-- التبويبات -->
     <div class="flex border-b mb-6 justify-center space-x-4 rtl:space-x-reverse">
-      <button
-        v-for="(tab, index) in tabs"
-        :key="index"
-        @click="activeTab = index; activeItem = null"
-        :class="[
-          'py-2 px-4 font-bold',
-          activeTab === index
-            ? 'border-b-4 border-primary text-primary bg-second rounded-xl'
-            : 'text-gray-500'
-        ]"
-      >
+      <button v-for="(tab, index) in tabs" :key="index" @click="activeTab = index; activeItem = null" :class="[
+        'py-2 px-4 font-bold',
+        activeTab === index
+          ? 'border-b-4 border-primary text-primary bg-second rounded-xl'
+          : 'text-gray-500'
+      ]">
         {{ tab.name }}
       </button>
     </div>

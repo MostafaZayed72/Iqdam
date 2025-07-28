@@ -1,5 +1,5 @@
 <template>
-    <div class="mt-40">
+    <div class="">
         helloooeroheroiyhriiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
     </div>
 </template>

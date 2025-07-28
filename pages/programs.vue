@@ -20,8 +20,8 @@
             class="card rounded-lg shadow-lg overflow-hidden bg-white">
             <img :src="program.image" class="w-full h-48 md:h-[400px] " />
             <div class="p-4">
-              <h3 class="text-3xl font-bold mb-2 text-primary">{{ program.title }}</h3>
-              <p class="text-xl">{{ program.description }}</p>
+              <h3 class="text-3xl font-bold mb-2 text-primary text-center">{{ program.title }}</h3>
+              <p class="text-xl font-bold text-center">{{ program.description }}</p>
             </div>
           </div>
         </div>

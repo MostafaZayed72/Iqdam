@@ -108,7 +108,6 @@
         <input v-model="editedNews.titleEn" placeholder="العنوان (إنجليزي)" class="mb-2 border p-2 rounded w-full" />
         <textarea v-model="editedNews.descriptionAr" placeholder="الوصف (عربي)" class="mb-2 border p-2 rounded w-full" />
         <textarea v-model="editedNews.descriptionEn" placeholder="الوصف (إنجليزي)" class="mb-2 border p-2 rounded w-full" />
-        <input type="date" v-model="editedNews.publishedAt" class="mb-2 border p-2 rounded w-full" />
         <div class="flex justify-end gap-2 mt-4">
           <button @click="showEditDialog = false" class="bg-gray-300 px-4 py-1 rounded">إلغاء</button>
           <button @click="submitEdit" class="bg-yellow-600 text-white px-4 py-1 rounded">💾 حفظ</button>

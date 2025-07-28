@@ -45,8 +45,11 @@
 
     <!-- Sidebar Menu for Small Screens -->
     <transition name="slide">
-      <div v-if="isSidebarOpen" class="md:hidden fixed top-0 left-0 w-full h-screen z-10 bg-primary p-4">
-        <div class="flex justify-end">
+<div
+  v-if="isSidebarOpen"
+  :class="['md:hidden', 'fixed', 'top-4', locale === 'ar' ? 'right-4' : 'left-4', 'z-50', 'bg-white/50', 'backdrop-blur-md', 'rounded-xl', 'p-4', 'shadow-lg', 'w-fit', 'max-w-[90%]']">
+
+        <div class="flex justify-start">
           <Icon @click="toggleSidebar" name="iconamoon:menu-burger-horizontal" class="text-3xl cursor-pointer" />
         </div>
 
@@ -55,7 +58,7 @@
             v-for="link in navLinks"
             :key="link.to"
             @click="handleLinkClick"
-            class="flex items-center gap-2 px-4 py-2 rounded-lg delayed cursor-pointer font-bold text-slate-50 hover:text-primary"
+            class="flex items-center gap-2 px-4 py-2 rounded-lg delayed cursor-pointer font-bold text-black  hover:text-primary"
             :to="link.to"
             active-class="text-secondary"
             exact-active-class="text-secondary underline">
@@ -65,11 +68,12 @@
         </div>
       </div>
     </transition>
-
     <Loader v-if="loading" />
     <main class="">
       <slot />
     </main>
+            <FloatingActions class="z-100" style="z-index: 100;"/>
+
   </div>
 </template>
 
@@ -90,12 +94,12 @@ const roles = ref();
 
 const navLinks = [
   { to: '/', label: 'Home', icon: 'material-symbols:family-home' },
+    { to: '/about-us', label: 'About us', icon: 'solar:user-speak-bold-duotone' },
   { to: '/features', label: 'Features', icon: 'fluent:branch-fork-32-filled' },
   { to: '/programs', label: 'Programs', icon: 'material-symbols:barcode-reader-outline' },
-  { to: '/registration', label: 'Registration', icon: 'ic:twotone-app-registration' },
   { to: '/contact', label: 'Contact us', icon: 'ic:outline-connect-without-contact' },
-  { to: '/payment', label: 'Payment', icon: 'fluent:payment-48-filled' },
   { to: '/teachers', label: 'Teachers', icon: 'noto:man-teacher-light-skin-tone' },
+    { to: '/registration', label: 'Registration', icon: 'ic:twotone-app-registration' },
   { to: '/news', label: 'News', icon: 'material-symbols:breaking-news' },
 ];
 

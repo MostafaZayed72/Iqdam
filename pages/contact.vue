@@ -1,26 +1,20 @@
 <template>
- <div>
-     <section class=" bg-gray-50 dark:bg-gray-900 py-12 px-4 text-center mt-40">
-    <h1 class="text-3xl md:text-4xl font-bold text-primary dark:text-white mb-8">
+  <div>
+    <section class=" bg-gray-50 dark:bg-gray-900 py-12 px-4 text-center ">
+      <h1 class="text-3xl md:text-4xl font-bold text-primary dark:text-white mb-8">
         {{ $t('Contact us') }}
-    </h1>
+      </h1>
 
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-      <ContactCard
-        v-for="(platform, index) in socialPlatforms"
-        :key="index"
-        :icon="platform.icon"
-        :name="t(platform.name)"
-        :url="platform.url"
-        :color="platform.color"
-      />
-    </div>
-    
-  </section>
-      <Map  />
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+        <ContactCard v-for="(platform, index) in socialPlatforms" :key="index" :icon="platform.icon"
+          :name="t(platform.name)" :url="platform.url" :color="platform.color" />
+      </div>
 
-  <Footer />
- </div>
+    </section>
+    <Map />
+
+    <Footer />
+  </div>
 
 </template>
 
