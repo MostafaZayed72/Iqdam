@@ -5,7 +5,7 @@
     <div class="mb-0 px-4 flex justify-between items-center w-full  py-1  z-50 backdrop-blur-sm bg-white/30 dark:bg-black/30">
       <div class="flex items-center gap-4">
         <!-- Burger Icon for Small Screens -->
-        <Icon @click="toggleSidebar" name="iconamoon:menu-burger-horizontal" class="md:hidden text-3xl cursor-pointer" />
+        <Icon @click="toggleSidebar" name="iconamoon:menu-burger-horizontal" class="lg:hidden text-3xl cursor-pointer" />
 
         <!-- Logo -->
 <div>
@@ -24,7 +24,7 @@
       </div>
 
 
-      <div class="links md:flex items-center gap-4 hidden">
+      <div class="links lg:flex items-center gap-4 hidden">
         <NuxtLink
           v-for="link in navLinks"
           :key="link.to"
@@ -47,7 +47,7 @@
     <transition name="slide">
 <div
   v-if="isSidebarOpen"
-  :class="['md:hidden', 'fixed', 'top-4', locale === 'ar' ? 'right-4' : 'left-4', 'z-50', 'bg-white/50', 'backdrop-blur-md', 'rounded-xl', 'p-4', 'shadow-lg', 'w-fit', 'max-w-[90%]']">
+  :class="['lg:hidden', 'fixed', 'top-4', locale === 'ar' ? 'right-4' : 'left-4', 'z-50', 'bg-white/50', 'backdrop-blur-md', 'rounded-xl', 'p-4', 'shadow-lg', 'w-fit', 'max-w-[90%]']">
 
         <div class="flex justify-start">
           <Icon @click="toggleSidebar" name="iconamoon:menu-burger-horizontal" class="text-3xl cursor-pointer" />
