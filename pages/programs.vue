@@ -1,50 +1,51 @@
 <template>
- <div style="background-image: url('/imgs/2.png'); min-height: 100vh; background-size: cover">
-   <div class="p-4 max-w-7xl mx-auto"  >
-    <!-- التبويبات -->
-    <div class="flex border-b mb-6">
-      <button v-for="(tab, index) in tabs" :key="index" @click="activeTab = index" :class="[
-        'py-2 px-4 font-bold',
-        activeTab === index ? 'border-b-4 border-primary text-primary bg-second rounded-xl' : 'text-gray-500'
-      ]">
-        {{ tab.name }}
-      </button>
-    </div>
+  <div style="background-image: url('/imgs/2.png'); min-height: 100vh; background-size: cover">
+    <div class="p-4 max-w-7xl mx-auto">
+      <!-- التبويبات -->
+      <div class="flex border-b mb-6">
+        <button v-for="(tab, index) in tabs" :key="index" @click="activeTab = index" :class="[
+          'py-2 px-4 font-bold',
+          activeTab === index ? 'border-b-4 border-one text-one bg-second rounded-xl' : 'text-gray-500'
+        ]">
+          {{ tab.name }}
+        </button>
+      </div>
 
-    <!-- المحتوى -->
-    <div>
-      <div v-if="activeTab === 0">
-        <!-- البرامج الترفيهية -->
-        <div class="grid grid-cols-1  gap-6">
-          <div v-for="(program, idx) in entertainmentPrograms" :key="'entertainment-' + idx"
-            class="card rounded-lg shadow-lg overflow-hidden bg-white">
-            <img :src="program.image" class="w-full h-48 md:h-[400px] " />
-            <div class="p-4">
-              <h3 class="text-3xl font-bold mb-2 text-primary text-center">{{ program.title }}</h3>
-              <p class="text-xl font-bold text-center">{{ program.description }}</p>
+      <!-- المحتوى -->
+      <div>
+        <div v-if="activeTab === 0">
+          <!-- البرامج الترفيهية -->
+          <div class="grid grid-cols-1  gap-6">
+            <div v-for="(program, idx) in entertainmentPrograms" :key="'entertainment-' + idx"
+              class="card rounded-lg shadow-lg overflow-hidden bg-white">
+              <NuxtImg :src="program.image" class="w-full h-48 md:h-[400px] " />
+              <div class="p-4">
+                <h3 class="text-3xl font-bold mb-2 text-one text-center">{{ program.title }}</h3>
+                <p class="text-xl font-bold text-center">{{ program.description }}</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div v-if="activeTab === 1">
-        <!-- البرامج التعليمية -->
-        <div class="grid grid-cols-1  gap-6">
-          <div v-for="(program, idx) in educationalPrograms" :key="'educational-' + idx"
-            class="card rounded-lg shadow-lg overflow-hidden bg-white">
-            <img :src="program.image" class="w-full h-48 md:h-[400px] " />
-            <div class="p-4">
-              <h3 class="text-3xl font-bold mb-2 text-primary text-center">{{ program.title }}</h3>
-              <p class=" text-xl font-bold text-center">{{ program.description }}</p>
+        <div v-if="activeTab === 1">
+          <!-- البرامج التعليمية -->
+          <div class="grid grid-cols-1  gap-6">
+            <div v-for="(program, idx) in educationalPrograms" :key="'educational-' + idx"
+              class="card rounded-lg shadow-lg overflow-hidden bg-white">
+              <NuxtImg :src="program.image" class="w-full h-48 md:h-[400px] " />
+              <div class="p-4">
+                <h3 class="text-3xl font-bold mb-2 text-one text-center">{{ program.title }}</h3>
+                <p class=" text-xl font-bold text-center">{{ program.description }}</p>
+              </div>
             </div>
           </div>
+          <h1 class="text-center text-blue-950 mx-auto w-full mt-10 text-xl font-bold bg-second p-2 rounded-xl">{{
+            $t('Our education is project-based, with monthly projects within each subject, and all subjects integrated into one project.We encourage teamwork, innovation, and personal and social development.There are social skills development courses, programs for values ​​and positive behavior, as well as workshops for time management, problem solving, and leadership.') }}</h1>
         </div>
-        <h1  class="text-center text-blue-950 mx-auto w-full mt-10 text-xl font-bold bg-second p-2 rounded-xl">{{ $t('Our education is project-based, with monthly projects within each subject, and all subjects integrated into one project.We encourage teamwork, innovation, and personal and social development.There are social skills development courses, programs for values ​​and positive behavior, as well as workshops for time management, problem solving, and leadership.') }}</h1>
-      </div>
 
+      </div>
     </div>
   </div>
- </div>
 </template>
 
 <script setup>
@@ -112,11 +113,11 @@ const educationalPrograms = computed(() => [
 
 
 <style scoped>
-.border-primary {
+.border-one {
   border-color: #1d4ed8;
 }
 
-.text-primary {
+.text-one {
   color: #1d4ed8;
 }
 </style>

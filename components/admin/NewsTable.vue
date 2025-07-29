@@ -1,12 +1,7 @@
 <template>
   <div>
     <!-- 🔍 البحث -->
-    <input
-      v-model="search"
-      @input="onSearch"
-      placeholder="بحث..."
-      class="border p-2 mb-4 rounded w-full max-w-md"
-    />
+    <input v-model="search" @input="onSearch" placeholder="بحث..." class="border p-2 mb-4 rounded w-full max-w-md" />
 
     <!-- 📋 جدول الأخبار -->
     <div class="overflow-x-auto">
@@ -45,9 +40,11 @@
 
     <!-- 🔁 Pagination -->
     <div class="flex justify-center items-center mt-4 space-x-4 w-max min-w-[1000px]">
-      <button @click="prevPage" :disabled="currentPage === 1" class="px-4 py-1 rounded bg-gray-200 disabled:opacity-50">⬅ السابق</button>
+      <button @click="prevPage" :disabled="currentPage === 1"
+        class="px-4 py-1 rounded bg-gray-200 disabled:opacity-50">⬅ السابق</button>
       <span>صفحة {{ currentPage }}</span>
-      <button @click="nextPage" :disabled="!hasMore" class="px-4 py-1 rounded bg-gray-200 disabled:opacity-50">التالي ➡</button>
+      <button @click="nextPage" :disabled="!hasMore" class="px-4 py-1 rounded bg-gray-200 disabled:opacity-50">التالي
+        ➡</button>
     </div>
 
     <!-- 🖼 الوسائط -->
@@ -56,10 +53,11 @@
       <div class="grid md:grid-cols-3 gap-4">
         <div v-for="item in media" :key="item.id" class="border p-2 rounded-xl">
           <template v-if="item.mediaType === 'Image'">
-            <img :src="item.url" class="w-full h-64 object-cover rounded-xl" />
+            <NuxtImg :src="item.url" class="w-full h-64 object-cover rounded-xl" />
           </template>
           <template v-else>
-            <iframe :src="getYoutubeEmbedUrl(item.url)" class="w-full h-64 rounded-xl" frameborder="0" allowfullscreen></iframe>
+            <iframe :src="getYoutubeEmbedUrl(item.url)" class="w-full h-64 rounded-xl" frameborder="0"
+              allowfullscreen></iframe>
           </template>
           <p class="text-sm mt-1">{{ item.captionAr || 'بدون عنوان' }}</p>
           <button @click="deleteMedia(item.id)" class="text-red-600 text-sm underline mt-1">🗑 حذف</button>
@@ -106,8 +104,10 @@
         <h2 class="text-lg font-bold mb-4">تعديل الخبر</h2>
         <input v-model="editedNews.titleAr" placeholder="العنوان (عربي)" class="mb-2 border p-2 rounded w-full" />
         <input v-model="editedNews.titleEn" placeholder="العنوان (إنجليزي)" class="mb-2 border p-2 rounded w-full" />
-        <textarea v-model="editedNews.descriptionAr" placeholder="الوصف (عربي)" class="mb-2 border p-2 rounded w-full" />
-        <textarea v-model="editedNews.descriptionEn" placeholder="الوصف (إنجليزي)" class="mb-2 border p-2 rounded w-full" />
+        <textarea v-model="editedNews.descriptionAr" placeholder="الوصف (عربي)"
+          class="mb-2 border p-2 rounded w-full" />
+        <textarea v-model="editedNews.descriptionEn" placeholder="الوصف (إنجليزي)"
+          class="mb-2 border p-2 rounded w-full" />
         <div class="flex justify-end gap-2 mt-4">
           <button @click="showEditDialog = false" class="bg-gray-300 px-4 py-1 rounded">إلغاء</button>
           <button @click="submitEdit" class="bg-yellow-600 text-white px-4 py-1 rounded">💾 حفظ</button>
@@ -119,6 +119,11 @@
     <Loader v-if="loader" />
   </div>
 </template>
+
+
+
+
+
 
 <script setup>
 import { ref, onMounted } from 'vue'
@@ -149,6 +154,19 @@ const editedNews = ref({
   publishedAt: ''
 })
 
+// ✅ دالة موحدة لإضافة التوكن مع كل ريكويست
+const authFetch = async (url, options = {}) => {
+  const token = localStorage.getItem('authToken')
+  return await $fetch(url, {
+    ...options,
+    baseURL: config.public.baseUrl,
+    headers: {
+      ...(options.headers || {}),
+      Authorization: token ? `Bearer ${token}` : ''
+    }
+  })
+}
+
 const fetchNews = async () => {
   loader.value = true
   try {
@@ -157,10 +175,7 @@ const fetchNews = async () => {
       PageSize: pageSize,
       Search: search.value
     })
-    const response = await $fetch(`/api/NewsItems/GetAllMatching?${query}`, {
-      baseURL: config.public.baseUrl,
-      method: 'GET'
-    })
+    const response = await authFetch(`/api/NewsItems/GetAllMatching?${query}`, { method: 'GET' })
     newsItems.value = response.items
     hasMore.value = response.items.length === pageSize
   } finally {
@@ -178,10 +193,7 @@ const viewMedia = async (newsId) => {
       PageSize: 20,
       Search: ''
     })
-    const response = await $fetch(`/api/NewsMediaItems/GetAllMatching?${query}`, {
-      baseURL: config.public.baseUrl,
-      method: 'GET'
-    })
+    const response = await authFetch(`/api/NewsMediaItems/GetAllMatching?${query}`, { method: 'GET' })
     media.value = response.items
   } finally {
     loader.value = false
@@ -192,8 +204,7 @@ const deleteNews = async (id) => {
   if (!confirm('هل أنت متأكد من الحذف؟')) return
   loader.value = true
   try {
-    await $fetch('/api/NewsItems/Delete', {
-      baseURL: config.public.baseUrl,
+    await authFetch('/api/NewsItems/Delete', {
       method: 'DELETE',
       body: { id }
     })
@@ -206,8 +217,7 @@ const deleteNews = async (id) => {
 const deleteMedia = async (id) => {
   loader.value = true
   try {
-    await $fetch('/api/NewsMediaItems/Delete', {
-      baseURL: config.public.baseUrl,
+    await authFetch('/api/NewsMediaItems/Delete', {
       method: 'DELETE',
       body: { id }
     })
@@ -227,8 +237,7 @@ const startEdit = (news) => {
 const submitEdit = async () => {
   loader.value = true
   try {
-    await $fetch('/api/NewsItems/Update', {
-      baseURL: config.public.baseUrl,
+    await authFetch('/api/NewsItems/Update', {
       method: 'PATCH',
       body: editedNews.value
     })
@@ -262,8 +271,7 @@ const submitImage = async () => {
   loader.value = true
   try {
     const imageUrl = await uploadImageToCloudinary(newImage.value.file)
-    await $fetch('/api/NewsMediaItems/Add', {
-      baseURL: config.public.baseUrl,
+    await authFetch('/api/NewsMediaItems/Add', {
       method: 'POST',
       body: {
         newsItemId: selectedNewsId.value,
@@ -288,8 +296,7 @@ const submitVideo = async () => {
   if (!newVideo.value.url) return alert('أدخل رابط الفيديو')
   loader.value = true
   try {
-    await $fetch('/api/NewsMediaItems/Add', {
-      baseURL: config.public.baseUrl,
+    await authFetch('/api/NewsMediaItems/Add', {
       method: 'POST',
       body: {
         newsItemId: selectedNewsId.value,
@@ -348,14 +355,25 @@ const getYoutubeEmbedUrl = (url) => {
 onMounted(() => {
   fetchNews()
 })
+
 defineExpose({
   fetchNews
 })
-
 </script>
 
+
+
+
+
+
+
+
+
+
+
 <style scoped>
-input, textarea {
+input,
+textarea {
   direction: rtl;
 }
 </style>

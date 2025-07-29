@@ -1,6 +1,7 @@
 <template>
   <div class="container mx-auto">
-    <Button label="إضافة مستخدم جديد" icon="pi pi-plus" @click="navigateTo('/admin/roles/addNewUser')" class="mb-4 bg-primary" />
+    <Button label="إضافة مستخدم جديد" icon="pi pi-plus" @click="navigateTo('/admin/roles/addNewUser')"
+      class="mb-4 bg-one" />
     <DataTable :value="users" :paginator="true" :rows="10" :totalRecords="totalCount">
       <Column field="firstName" header="First Name" />
       <Column field="lastName" header="Last Name" />
@@ -9,10 +10,7 @@
       <Column field="roleName" header="Role" />
       <Column header="Actions">
         <template #body="slotProps">
-          <Button 
-            label="تعديل" 
-            icon="pi pi-pencil" 
-            class="bg-yellow"
+          <Button label="تعديل" icon="pi pi-pencil" class="bg-yellow"
             @click="navigateTo(`/admin/roles/${slotProps.data.id}`)" />
         </template>
       </Column>
@@ -24,8 +22,8 @@
 import { ref, onMounted } from 'vue';
 import { useCookie } from '#app';
 
-import  DataTable  from 'primevue/datatable';
-import  Column  from 'primevue/column';
+import DataTable from 'primevue/datatable';
+import Column from 'primevue/column';
 import { RouterLink } from 'vue-router';
 
 const users = ref([]);

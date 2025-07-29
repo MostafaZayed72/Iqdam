@@ -14,70 +14,41 @@
       <!-- First Name -->
       <div class="field">
         <label for="firstName" class="block text-sm font-medium mb-1">First Name</label>
-        <InputText
-          v-model="user.firstName"
-          id="firstName"
-          placeholder="Enter First Name"
-          class="w-full border-2 border-indigo-700 focus:ring-2 focus:ring-indigo-500"
-        />
+        <InputText v-model="user.firstName" id="firstName" placeholder="Enter First Name"
+          class="w-full border-2 border-indigo-700 focus:ring-2 focus:ring-indigo-500" />
       </div>
 
       <!-- Last Name -->
       <div class="field">
         <label for="lastName" class="block text-sm font-medium mb-1">Last Name</label>
-        <InputText
-          v-model="user.lastName"
-          id="lastName"
-          placeholder="Enter Last Name"
-          class="w-full border-2 border-indigo-700 focus:ring-2 focus:ring-indigo-500"
-        />
+        <InputText v-model="user.lastName" id="lastName" placeholder="Enter Last Name"
+          class="w-full border-2 border-indigo-700 focus:ring-2 focus:ring-indigo-500" />
       </div>
 
       <!-- Email -->
       <div class="field">
         <label for="email" class="block text-sm font-medium mb-1">Email</label>
-        <InputText
-          v-model="user.email"
-          id="email"
-          type="email"
-          placeholder="Enter Email"
-          class="w-full border-2 border-indigo-700 focus:ring-2 focus:ring-indigo-500"
-        />
+        <InputText v-model="user.email" id="email" type="email" placeholder="Enter Email"
+          class="w-full border-2 border-indigo-700 focus:ring-2 focus:ring-indigo-500" />
       </div>
 
       <!-- Mobile Number -->
       <div class="field">
         <label for="mobileNo" class="block text-sm font-medium mb-1">Mobile Number</label>
-        <InputText
-          v-model="user.mobileNo"
-          id="mobileNo"
-          placeholder="Enter Mobile Number"
-          class="w-full border-2 border-indigo-700 focus:ring-2 focus:ring-indigo-500"
-        />
+        <InputText v-model="user.mobileNo" id="mobileNo" placeholder="Enter Mobile Number"
+          class="w-full border-2 border-indigo-700 focus:ring-2 focus:ring-indigo-500" />
       </div>
 
       <!-- Role Dropdown -->
       <div class="field">
         <label for="role" class="block text-sm font-medium mb-1">Role</label>
-        <Dropdown
-          v-model="user.roleId"
-          id="role"
-          :options="roles"
-          optionLabel="label"
-          optionValue="value"
+        <Dropdown v-model="user.roleId" id="role" :options="roles" optionLabel="label" optionValue="value"
           placeholder="Select Role"
-          class="w-full border-2 border-indigo-700 bg-indigo-100 focus:ring-2 focus:ring-indigo-500"
-        />
+          class="w-full border-2 border-indigo-700 bg-indigo-100 focus:ring-2 focus:ring-indigo-500" />
       </div>
 
       <div class="field flex justify-between mt-6">
-        <Button
-          label="Save Changes"
-          icon="pi pi-check"
-          type="submit"
-          class="w-full p-button-primary"
-          :disabled="loading"
-        />
+        <Button label="Save Changes" icon="pi pi-check" type="submit" class="w-full p-button-one" :disabled="loading" />
       </div>
     </form>
   </div>
@@ -154,7 +125,7 @@ const updateUser = async () => {
   try {
     const token = localStorage.getItem('token');
     const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/Users/Update`, {
-      method: 'PUT', 
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
@@ -189,4 +160,3 @@ definePageMeta({
 // جلب البيانات عند التحميل
 fetchUserData();
 </script>
-

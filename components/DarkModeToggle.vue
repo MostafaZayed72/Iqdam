@@ -4,8 +4,8 @@
       @click="toggleDarkMode"
       class="p-2 rounded focus:outline-none"
     >
-      <i v-if="isDarkMode" class="fas fa-sun text-2xl mt-1 text-second"></i> 
-      <i v-else class="fas fa-moon text-2xl mt-2 text-second"></i> 
+      <i v-if="isDarkMode" class="fas fa-sun text-2xl mt-1 text-one dark:text-second"></i> 
+      <i v-else class="fas fa-moon text-2xl mt-2 text-one dark:text-second"></i> 
     </button>
   </div>
 </template>

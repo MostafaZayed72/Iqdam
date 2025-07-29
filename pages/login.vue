@@ -45,9 +45,14 @@ const handleLogin = async () => {
       return;
     }
 
-navigateTo('/admin')
+    // حفظ التوكن في localStorage
+    if (data.value?.token) {
+      localStorage.setItem('authToken', data.value.token);
+    }
+
+    navigateTo('/admin');
   } catch (err) {
     error.value = 'Unexpected error';
   }
-}
+};
 </script>

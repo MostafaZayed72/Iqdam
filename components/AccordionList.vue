@@ -1,25 +1,15 @@
 <template>
   <div class="space-y-4">
-    <div
-      v-for="(item, index) in items"
-      :key="index"
-      class="border rounded-lg overflow-hidden shadow-sm  card"
-    >
-      <button
-        class="w-full text-right p-4 font-semibold flex justify-between items-center"
-        @click="toggle(index)"
-      >
+    <div v-for="(item, index) in items" :key="index" class="border rounded-lg overflow-hidden shadow-sm  card">
+      <button class="w-full text-right p-4 font-semibold flex justify-between items-center" @click="toggle(index)">
         {{ item.title }}
-        <span class="ml-2 text-primary text-xl">
+        <span class="ml-2 text-one text-xl">
           <span v-if="active === index">−</span>
           <span v-else>+</span>
         </span>
       </button>
       <transition name="accordion" mode="out-in">
-        <div
-          v-if="active === index"
-          class="px-4 pb-4 "
-        >
+        <div v-if="active === index" class="px-4 pb-4 ">
           {{ item.description }}
         </div>
       </transition>
@@ -48,10 +38,13 @@ const toggle = (index) => {
 </script>
 
 <style scoped>
-.accordion-enter-active, .accordion-leave-active {
+.accordion-enter-active,
+.accordion-leave-active {
   transition: all 0.3s ease;
 }
-.accordion-enter-from, .accordion-leave-to {
+
+.accordion-enter-from,
+.accordion-leave-to {
   opacity: 0;
   max-height: 0;
 }

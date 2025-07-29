@@ -1,6 +1,6 @@
 <template>
   <div class="language-switcher cursor-pointer" @click="toggleLanguage">
-    <Icon name="mdi:web" class="text-2xl text-second  hover:text-primary transition-colors" />
+    <Icon name="mdi:web" class="text-2xl text-one dark:text-second  transition-colors" />
   </div>
 </template>
 

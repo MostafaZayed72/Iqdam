@@ -103,15 +103,19 @@ const submitForm = async () => {
   success.value = ''
 
   try {
+    const token = localStorage.getItem('authToken') // استدعاء التوكن
+
     await $fetch('/api/NewsItems/Add', {
       baseURL: config.public.baseUrl,
       method: 'POST',
+      headers: {
+        Authorization: `Bearer ${token}`, // إرسال التوكن
+      },
       body: form,
     })
 
     success.value = 'تمت إضافة الخبر بنجاح ✅'
 
-    // 🔄 انتظر لحظة قبل الإغلاق والتحديث
     setTimeout(() => {
       dialogOpen.value = false
       emit('newsAdded')

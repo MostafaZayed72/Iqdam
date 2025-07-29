@@ -12,23 +12,23 @@
       <!-- الروابط في الشاشات الكبيرة -->
       <div class="links md:flex items-center gap-4 hidden">
         <NuxtLink
-          class="hover:bg-second px-4 py-2 rounded-lg delayed cursor-pointer font-bold text-slate-50 hover:text-primary"
-          to="/admin/departments" active-class="bg-second text-primary" exact-active-class="bg-second text-primary">
+          class="hover:bg-second px-4 py-2 rounded-lg delayed cursor-pointer font-bold text-slate-50 hover:text-one"
+          to="/admin/departments" active-class="bg-second text-one" exact-active-class="bg-second text-one">
           {{ $t('Departments') }}
         </NuxtLink>
         <NuxtLink
-          class="hover:bg-second px-4 py-2 rounded-lg delayed cursor-pointer font-bold text-slate-50 hover:text-primary"
-          to="/admin/divisions" active-class="bg-second text-primary" exact-active-class="bg-second text-primary">
+          class="hover:bg-second px-4 py-2 rounded-lg delayed cursor-pointer font-bold text-slate-50 hover:text-one"
+          to="/admin/divisions" active-class="bg-second text-one" exact-active-class="bg-second text-one">
           {{ $t('Divisions') }}
         </NuxtLink>
         <NuxtLink
-          class="hover:bg-second px-4 py-2 rounded-lg delayed cursor-pointer font-bold text-slate-50 hover:text-primary"
-          to="/admin/orders" active-class="bg-second text-primary" exact-active-class="bg-second text-primary">
+          class="hover:bg-second px-4 py-2 rounded-lg delayed cursor-pointer font-bold text-slate-50 hover:text-one"
+          to="/admin/orders" active-class="bg-second text-one" exact-active-class="bg-second text-one">
           {{ $t('Orders') }}
         </NuxtLink>
         <NuxtLink
-          class="hover:bg-second px-4 py-2 rounded-lg delayed cursor-pointer font-bold text-slate-50 hover:text-primary"
-          to="/admin/roles" active-class="bg-second text-primary" exact-active-class="bg-second text-primary">
+          class="hover:bg-second px-4 py-2 rounded-lg delayed cursor-pointer font-bold text-slate-50 hover:text-one"
+          to="/admin/roles" active-class="bg-second text-one" exact-active-class="bg-second text-one">
           {{ $t('Roles') }}
         </NuxtLink>
 
@@ -49,33 +49,33 @@
 
     <!-- Burger Menu Transition for Small Screens -->
     <transition name="slide">
-      <div v-if="isSidebarOpen" class="bg-primary md:hidden border-t-2 border-grey-darken-2 h-screen fixed z-10">
+      <div v-if="isSidebarOpen" class="bg-one md:hidden border-t-2 border-grey-darken-2 h-screen fixed z-10">
         <div class="flex flex-col p-4">
           <NuxtLink
-            class="hover:bg-second px-4 py-2 rounded-lg delayed cursor-pointer font-bold text-slate-50 hover:text-primary"
-            to="/admin/departments" active-class="bg-second text-primary" exact-active-class="bg-second text-primary">
+            class="hover:bg-second px-4 py-2 rounded-lg delayed cursor-pointer font-bold text-slate-50 hover:text-one"
+            to="/admin/departments" active-class="bg-second text-one" exact-active-class="bg-second text-one">
             {{ $t('Departments') }}
           </NuxtLink>
 
           <NuxtLink
-          class="hover:bg-second px-4 py-2 rounded-lg delayed cursor-pointer font-bold text-slate-50 hover:text-primary"
-          to="/admin/divisions" active-class="bg-second text-primary" exact-active-class="bg-second text-primary">
+          class="hover:bg-second px-4 py-2 rounded-lg delayed cursor-pointer font-bold text-slate-50 hover:text-one"
+          to="/admin/divisions" active-class="bg-second text-one" exact-active-class="bg-second text-one">
           {{ $t('Divisions') }}
         </NuxtLink>
           <NuxtLink
-          class="hover:bg-second px-4 py-2 rounded-lg delayed cursor-pointer font-bold text-slate-50 hover:text-primary"
-          to="/admin/orders" active-class="bg-second text-primary" exact-active-class="bg-second text-primary">
+          class="hover:bg-second px-4 py-2 rounded-lg delayed cursor-pointer font-bold text-slate-50 hover:text-one"
+          to="/admin/orders" active-class="bg-second text-one" exact-active-class="bg-second text-one">
           {{ $t('Orders') }}
         </NuxtLink>
           <NuxtLink
-          class="hover:bg-second px-4 py-2 rounded-lg delayed cursor-pointer font-bold text-slate-50 hover:text-primary"
-          to="/admin/roles" active-class="bg-second text-primary" exact-active-class="bg-second text-primary">
+          class="hover:bg-second px-4 py-2 rounded-lg delayed cursor-pointer font-bold text-slate-50 hover:text-one"
+          to="/admin/roles" active-class="bg-second text-one" exact-active-class="bg-second text-one">
           {{ $t('Roles') }}
         </NuxtLink>
 
 
           <h1 v-if="token" @click="logout"
-            class="hover:bg-second px-4 py-2 rounded-lg delayed cursor-pointer font-bold text-slate-50 hover:text-primary">
+            class="hover:bg-second px-4 py-2 rounded-lg delayed cursor-pointer font-bold text-slate-50 hover:text-one">
             {{ $t('Logout') }}
           </h1>
 

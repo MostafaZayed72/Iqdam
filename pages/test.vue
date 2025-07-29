@@ -8,7 +8,7 @@
 
     <div v-if="fileUrl" class="mt-4">
       <div v-if="isImage(fileUrl)">
-        <img :src="fileUrl" class="max-w-sm rounded shadow" />
+        <NuxtImg :src="fileUrl" class="max-w-sm rounded shadow" />
       </div>
       <div v-else-if="isVideo(fileUrl)">
         <video controls class="max-w-sm rounded shadow">

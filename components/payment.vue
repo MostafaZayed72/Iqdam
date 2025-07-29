@@ -1,9 +1,7 @@
 <template>
   <section class=" flex items-center justify-center  ">
-    <button
-      @click="goToPayment"
-      class="bg-primary hover:bg-primary-dark text-white text-lg font-semibold py-3 px-6 rounded-lg transition"
-    >
+    <button @click="goToPayment"
+      class="bg-one hover:bg-one-dark text-white text-lg font-semibold py-3 px-6 rounded-lg transition">
       {{ t('Go to payment') }}
     </button>
   </section>
@@ -18,10 +16,11 @@ const goToPayment = () => {
 </script>
 
 <style scoped>
-.bg-primary {
+.bg-one {
   background-color: #1d4ed8;
 }
-.bg-primary-dark {
+
+.bg-one-dark {
   background-color: #1e40af;
 }
 </style>

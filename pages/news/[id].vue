@@ -12,26 +12,14 @@
       </p>
 
       <div class="grid md:grid-cols-2 gap-4">
-        <div
-          v-for="media in mediaList"
-          :key="media.id"
-          class="group bg-white shadow rounded-xl overflow-hidden transition-transform transform hover:-translate-y-1 hover:shadow-lg"
-        >
+        <div v-for="media in mediaList" :key="media.id"
+          class="group bg-white shadow rounded-xl overflow-hidden transition-transform transform hover:-translate-y-1 hover:shadow-lg">
           <div class="relative">
             <template v-if="media.mediaType === 'Image'">
-              <img
-                :src="media.url"
-                @click="openImage(media.url)"
-                class="w-full h-64 object-cover cursor-pointer"
-              />
+              <NuxtImg :src="media.url" @click="openImage(media.url)" class="w-full h-64 object-cover cursor-pointer" />
             </template>
             <template v-else>
-              <iframe
-                :src="formatYouTubeUrl(media.url)"
-                class="w-full h-64"
-                frameborder="0"
-                allowfullscreen
-              ></iframe>
+              <iframe :src="formatYouTubeUrl(media.url)" class="w-full h-64" frameborder="0" allowfullscreen></iframe>
             </template>
           </div>
           <div class="p-2 text-sm">
@@ -42,22 +30,14 @@
     </div>
 
     <!-- Lightbox -->
-    <div
-      v-if="lightboxImage"
-      class="fixed inset-0 bg-black bg-opacity-80 z-50 flex justify-center items-center"
-    >
+    <div v-if="lightboxImage" class="fixed inset-0 bg-black bg-opacity-80 z-50 flex justify-center items-center">
       <div class="relative max-w-4xl w-full">
-    <button
-  @click="lightboxImage = null"
-  class="absolute top-4 right-2 bg-red hover:bg-red-700 text-white text-xl font-bold px-3 py-1 rounded-full z-10"
->
-  ✕
-</button>
+        <button @click="lightboxImage = null"
+          class="absolute top-4 right-2 bg-red hover:bg-red-700 text-white text-xl font-bold px-3 py-1 rounded-full z-10">
+          ✕
+        </button>
 
-        <img
-          :src="lightboxImage"
-          class="w-full max-h-[90vh] object-contain rounded-lg shadow-lg"
-        />
+        <NuxtImg :src="lightboxImage" class="w-full max-h-[90vh] object-contain rounded-lg shadow-lg" />
       </div>
     </div>
   </div>

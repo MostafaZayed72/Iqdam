@@ -11,14 +11,15 @@ export default defineNuxtConfig({
     }},
   devtools: { enabled: true },
   modules: [
-    '@primevue/nuxt-module',
-    '@vueuse/nuxt',
-    '@nuxtjs/tailwindcss',
-    '@nuxtjs/i18n',
-    '@nuxt/fonts',
-    '@nuxt/icon',
-    'nuxt-swiper',
-    'vuetify-nuxt-module',
+   '@primevue/nuxt-module',
+   '@vueuse/nuxt',
+   '@nuxtjs/tailwindcss',
+   '@nuxtjs/i18n',
+   '@nuxt/fonts',
+   '@nuxt/icon',
+   'nuxt-swiper',
+   'vuetify-nuxt-module',
+   '@nuxt/image'
   ],
   primevue: {
     options: {

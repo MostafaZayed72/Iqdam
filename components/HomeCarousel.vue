@@ -1,37 +1,31 @@
 <template>
-  <div class="relative min-h-screen overflow-hidden" @wheel="handleScroll"
-  @touchstart="handleTouchStart"
-  @touchend="handleTouchEnd">
+  <div class="relative min-h-screen overflow-hidden" @wheel="handleScroll" @touchstart="handleTouchStart"
+    @touchend="handleTouchEnd">
     <div class="transition-transform duration-700 ease-out"
       :style="{ transform: `translateY(-${currentIndex * 100}vh)` }">
-      
-<!-- Slide 1 -->
-<div class="relative min-h-screen w-screen  overflow-hidden">
-  <video
-    class="absolute top-0 left-0 w-full h-full object-cover"
-    src="https://res.cloudinary.com/dmsauhps3/video/upload/v1752599332/w9vitsxhxennkidyqwqt.mp4"
-    autoplay
-    loop
-    muted
-    playsinline
-  ></video>
 
-  <!-- النص فوق الفيديو -->
-  <div class="absolute inset-0 flex flex-col items-center justify-center z-10 px-10">
-    <h1 class="text-primary text-4xl md:text-6xl font-extrabold drop-shadow-lg text-center animate-fade" v-if="locale === 'ar'">
-      أكاديمية <span class="text-second bold"> إقدام</span> التعليمية
-    </h1>
-    <h1 class="text-primary text-4xl md:text-6xl font-extrabold drop-shadow-lg text-center animate-fade" v-else>
-<span class="text-second bold">IQDAM</span> ACADEMY FOR EDUCATION 
-    </h1>
-    <h1 class="text-black mt-10 bg-second p-1 rounded-xl">{{ $t('Iqdam Educational Academy is an innovative educational academy that aims to enable individuals to achieve their educational and professional goals in a modern and effective manner.') }}</h1>
-  </div>
- 
-</div>
+      <!-- Slide 1 -->
+      <div class="relative min-h-screen w-screen  overflow-hidden">
+        <video class="absolute top-0 left-0 w-full h-full object-cover"
+          src="https://res.cloudinary.com/dmsauhps3/video/upload/v1752599332/w9vitsxhxennkidyqwqt.mp4" autoplay loop
+          muted playsinline></video>
+
+        <!-- النص فوق الفيديو -->
+        <div class="absolute inset-0 flex flex-col items-center justify-center z-10 px-10">
+          <h1 class="text-one text-4xl md:text-6xl font-extrabold drop-shadow-lg text-center animate-fade"
+            v-if="locale === 'ar'">
+            أكاديمية <span class="text-second bold"> إقدام</span> التعليمية
+          </h1>
+          <h1 class="text-one text-4xl md:text-6xl font-extrabold drop-shadow-lg text-center animate-fade" v-else>
+            <span class="text-second bold">IQDAM</span> ACADEMY FOR EDUCATION
+          </h1>
+          <h1 class="text-black mt-10 bg-second p-1 rounded-xl">{{ $t('Iqdam Educational Academy is an innovative educational academy that aims to enable individuals to achieve their educational and professional goals in a modern and effective manner.') }}</h1>
+        </div>
+
+      </div>
 
       <!-- Slide 2 -->
-      <div 
-        class="flex flex-col items-center justify-center md:justify-between overflow-y-auto gap-8"
+      <div class="flex flex-col items-center justify-center md:justify-between overflow-y-auto gap-8"
         :class="{ 'slide-in-left': currentIndex === 1, 'slide-in-right': currentIndex === 2 }"
         style="min-height: 100vh; background-image: url('/imgs/slide-tow.jpg'); background-size: cover">
         <SlidesTowRight class="w-full md:w-[50%]" />
@@ -39,31 +33,31 @@
 
       <!-- Slide 3 -->
       <div class="min-h-screen flex items-center justify-center overflow-y-auto px-10"
-       style="min-height: 100vh; background-image: url('/imgs/slide-three.jpg'); background-size: cover"
-      :class="{ 'slide-in-left': currentIndex === 2, 'slide-in-right': currentIndex === 3 }">
+        style="min-height: 100vh; background-image: url('/imgs/slide-three.jpg'); background-size: cover"
+        :class="{ 'slide-in-left': currentIndex === 2, 'slide-in-right': currentIndex === 3 }">
         <SlidesThreeCenter />
       </div>
 
       <!-- Slide 4 (محتوى طويل) -->
-     <div class="min-h-screen flex items-center justify-center overflow-y-auto "
-       style="min-height: 100vh; background-image: url('/imgs/slide-tow.jpg'); background-size: cover"
-      :class="{ 'slide-in-left': currentIndex === 3, 'slide-in-right': currentIndex === 4 }">
+      <div class="min-h-screen flex items-center justify-center overflow-y-auto "
+        style="min-height: 100vh; background-image: url('/imgs/slide-tow.jpg'); background-size: cover"
+        :class="{ 'slide-in-left': currentIndex === 3, 'slide-in-right': currentIndex === 4 }">
         <SlidesFourCenter />
       </div>
       <!-- Slide 5 -->
       <div class="min-h-screen flex items-center justify-center overflow-y-auto w-full"
-       style="min-height: 100vh; background-image: url('/imgs/building.jpg'); background-size: cover"
-      :class="{ 'slide-in-left': currentIndex === 4, 'slide-in-right': currentIndex === 5 }">
-    
+        style="min-height: 100vh; background-image: url('/imgs/building.jpg'); background-size: cover"
+        :class="{ 'slide-in-left': currentIndex === 4, 'slide-in-right': currentIndex === 5 }">
+
         <SlidesFiveCenter />
-      </div> 
+      </div>
     </div>
 
     <!-- Indicators on the side -->
     <div class="absolute mx-4 top-1/2 transform -translate-y-1/2 flex flex-col space-y-2">
-      <div v-for="(_, index) in 5" :key="index" @click="goToSlide(index)" :class="[ 
-        'h-4 w-4 rounded-full cursor-pointer transition-all duration-300', 
-        currentIndex === index ? 'bg-white border-2 border-second' : 'bg-gray-500' 
+      <div v-for="(_, index) in 5" :key="index" @click="goToSlide(index)" :class="[
+        'h-4 w-4 rounded-full cursor-pointer transition-all duration-300',
+        currentIndex === index ? 'bg-white border-2 border-second' : 'bg-gray-500'
       ]"></div>
     </div>
   </div>
@@ -71,9 +65,9 @@
 
 <script setup>
 import { ref } from 'vue';
-  import { useI18n } from 'vue-i18n';
-  const { locale } = useI18n();
-  
+import { useI18n } from 'vue-i18n';
+const { locale } = useI18n();
+
 
 const currentIndex = ref(0);
 
@@ -156,6 +150,7 @@ div.min-h-screen {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -171,6 +166,7 @@ div.min-h-screen {
     transform: translateX(-100%);
     opacity: 0;
   }
+
   to {
     transform: translateX(0);
     opacity: 1;
@@ -182,6 +178,7 @@ div.min-h-screen {
     transform: translateX(100%);
     opacity: 0;
   }
+
   to {
     transform: translateX(0);
     opacity: 1;

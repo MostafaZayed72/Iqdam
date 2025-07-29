@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class=" bg-gray-50 dark:bg-gray-900 py-12 px-4 text-center ">
-      <h1 class="text-3xl md:text-4xl font-bold text-primary dark:text-white mb-8">
+      <h1 class="text-3xl md:text-4xl font-bold text-one dark:text-white mb-8">
         {{ $t('Contact us') }}
       </h1>
 

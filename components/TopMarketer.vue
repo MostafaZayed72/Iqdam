@@ -1,7 +1,6 @@
 <template>
   <div>
-    <h1 class="mx-auto text-center text font-bold  w-fit px-4 py-2 rounded-full text-white"
-      >{{ $t('The distinguished marketer') }}</h1>
+    <h1 class="mx-auto text-center text font-bold  w-fit px-4 py-2 rounded-full text-white">{{ $t('The distinguished marketer') }}</h1>
     <v-carousel height="250" show-arrows="hover" cycle hide-delimiter-background>
 
       <!-- تكرار المسوقين باستخدام v-for -->
@@ -9,7 +8,7 @@
         <div class="flex flex-col gap- md:flex-row justify-center md:justify-around">
           <div class="flex flex-col gap-2 md:flex-row md:justify-around items-center p-6 rounded-md md:mx-40 md:w-full">
             <div class="flex flex-col gap-1 items-center md:flex-row justify-center md:gap-2">
-              <!-- <img class="w-16 h-16 rounded-full" src="/public/imgs/person.png" alt=""> -->
+              <!-- <NuxtImg class="w-16 h-16 rounded-full" src="/public/imgs/person.png" alt=""> -->
               <h3 class="text-xl font-semibold text-grey-darken-2 dark:text-green-300">{{ marketer.name }}</h3>
 
               <!-- عرض النجوم بناءً على المركز -->

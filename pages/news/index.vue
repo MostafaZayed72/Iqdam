@@ -1,30 +1,18 @@
 <template>
-  <div class="container mx-auto p-4" style="background-image: url('/imgs/2.png'">
+  <div class="container mx-auto p-4" style="background-image: url('/imgs/2.png'); background-size: cover;">
     <!-- حقل البحث -->
-    <input
-      v-model="search"
-      @input="onSearch"
-      placeholder="بحث عن الأخبار..."
-      class="border border-gray-300 rounded px-4 py-2 mb-6 w-full max-w-md"
-    />
+    <input v-model="search" @input="onSearch" placeholder="بحث عن الأخبار..."
+      class="border border-gray-300 rounded px-4 py-2 mb-6 w-full max-w-md" />
 
     <!-- Loader -->
     <Loader v-if="loader" />
 
     <!-- الأخبار -->
     <div v-else class="grid gap-6 md:grid-cols-2">
-      <div
-        v-for="item in newsItems"
-        :key="item.id"
+      <div v-for="item in newsItems" :key="item.id"
         class="bg-white rounded-xl shadow-md overflow-hidden transform transition duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer"
-        @click="navigateToNews(item.id)"
-      >
-        <img
-          v-if="item.firstImage"
-          :src="item.firstImage"
-          class="w-full h-60 object-cover"
-          alt="News Image"
-        />
+        @click="navigateToNews(item.id)">
+        <NuxtImg v-if="item.firstImage" :src="item.firstImage" class="w-full h-60 object-cover" alt="News Image" />
         <div class="p-4">
           <h3 class="text-lg font-bold mb-2">
             {{ locale === 'ar' ? item.titleAr : item.titleEn }}
@@ -38,20 +26,14 @@
 
     <!-- Pagination -->
     <div class="flex justify-center gap-4 mt-8" v-if="!loader && newsItems.length">
-      <button
-        @click="prevPage"
-        :disabled="currentPage === 1"
-        class="bg-gray-200 px-4 py-1 rounded disabled:opacity-50 text-black"
-      >
-        ⬅ السابق
+      <button @click="prevPage" :disabled="currentPage === 1"
+        class="bg-gray-200 px-4 py-1 rounded disabled:opacity-50 text-black">
+        ⬅ {{ $t('Previous') }}
       </button>
-      <span class="bg-primary py-2 px-2 rounded-full">صفحة {{ currentPage }}</span>
-      <button
-        @click="nextPage"
-        :disabled="!hasMore"
-        class="bg-gray-200 px-4 py-1 rounded disabled:opacity-50 text-black"
-      >
-        التالي ➡
+      <span class="bg-one py-2 px-2 rounded-full text-white">{{ $t('Page') }} {{ currentPage }}</span>
+      <button @click="nextPage" :disabled="!hasMore"
+        class="bg-gray-200 px-4 py-1 rounded disabled:opacity-50 text-black">
+        {{ $t('Next') }} ➡
       </button>
     </div>
   </div>

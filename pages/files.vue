@@ -6,7 +6,7 @@
 
     <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       <div v-for="item in media" :key="item.id" class="rounded shadow p-2 bg-white">
-        <img
+        <NuxtImg
           v-if="item.type === 'image'"
           :src="item.url"
           alt="صورة"

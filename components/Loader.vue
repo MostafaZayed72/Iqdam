@@ -1,6 +1,6 @@
 <template>
   <div class="loader">
-    <img src="/imgs/logo.png" class="spinner bg-white" alt="logo" />
+    <NuxtImg src="/imgs/logo.png" class="spinner bg-white" alt="logo" />
   </div>
 </template>
 

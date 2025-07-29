@@ -5,15 +5,15 @@
       <div class="flex items-center gap-4">
         <!-- <Icon @click="toggleSidebar" name="iconamoon:menu-burger-horizontal"
             class="md:hidden text-xl text-white cursor-pointer" /> -->
-        <img src="/imgs/logo.png" class="w-12 h-12 cursor-pointer bg-white" alt="" style="border-radius: 50%;"
+        <NuxtImg src="/imgs/logo.png" class="w-12 h-12 cursor-pointer bg-white" alt="" style="border-radius: 50%;"
           @click="navigateTo('/')">
       </div>
 
       <!-- الروابط في الشاشات الكبيرة -->
       <div class="links md:flex items-center gap-4 hidden">
         <NuxtLink
-          class="hover:bg-second px-4 py-2 rounded-lg delayed cursor-pointer font-bold text-slate-50 hover:text-primary"
-          to="/admin/products" active-class="bg-second text-primary" exact-active-class="bg-second text-primary">
+          class="hover:bg-second px-4 py-2 rounded-lg delayed cursor-pointer font-bold text-slate-50 hover:text-one"
+          to="/admin/products" active-class="bg-second text-one" exact-active-class="bg-second text-one">
           {{ $t('Products') }}
         </NuxtLink>
 
@@ -37,15 +37,15 @@
       <div v-if="isSidebarOpen" class="bg-second md:hidden border-t-2 border-grey-darken-2 h-screen fixed z-10">
         <div class="flex flex-col p-4">
           <NuxtLink
-            class="hover:bg-second px-4 py-2 rounded-lg delayed cursor-pointer font-bold text-slate-50 hover:text-primary"
-            to="/admin/products" active-class="bg-second text-primary" exact-active-class="bg-second text-primary">
+            class="hover:bg-second px-4 py-2 rounded-lg delayed cursor-pointer font-bold text-slate-50 hover:text-one"
+            to="/admin/products" active-class="bg-second text-one" exact-active-class="bg-second text-one">
             {{ $t('Products') }}
           </NuxtLink>
 
 
 
           <h1 v-if="token" @click="logout"
-            class="hover:bg-second px-4 py-2 rounded-lg delayed cursor-pointer font-bold text-slate-50 hover:text-primary">
+            class="hover:bg-second px-4 py-2 rounded-lg delayed cursor-pointer font-bold text-slate-50 hover:text-one">
             {{ $t('Logout') }}
           </h1>
 

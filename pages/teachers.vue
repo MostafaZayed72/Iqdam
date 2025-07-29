@@ -5,7 +5,7 @@
       <button v-for="(tab, index) in tabs" :key="index" @click="activeTab = index; activeItem = null" :class="[
         'py-2 px-4 font-bold',
         activeTab === index
-          ? 'border-b-4 border-primary text-primary bg-second rounded-xl'
+          ? 'border-b-4 border-one text-one bg-second rounded-xl'
           : 'text-gray-500'
       ]">
         {{ tab.name }}

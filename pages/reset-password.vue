@@ -16,7 +16,7 @@ const isError = ref(false);
 const sendEmail = async () => {
   try {
     const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/Users/forgot-password?email=${email.value}`, {
-        
+
     });
     isTokenSent.value = true;
     message.value = 'تم إرسال الرمز إلى بريدك الإلكتروني';
@@ -61,57 +61,37 @@ const resetPassword = async () => {
       </p>
 
       <!-- الخطوة الأولى: إدخال البريد الإلكتروني -->
-      <div v-if="!isTokenSent" class="pb-4" >
+      <div v-if="!isTokenSent" class="pb-4">
         <label for="email" class="block text-sm font-medium  mb-2">البريد الإلكتروني</label>
-        <input
-          id="email"
-          type="email"
-          v-model="email"
-          placeholder="أدخل بريدك الإلكتروني"
-          class="input-text w-fit"
-        />
-        <button @click="sendEmail" class="w-fit bg-green-300 hover:bg-green-400 delayed text-center text-black py-1 rounded-full mx-auto px-6 font-bold cursor-pointer flex justify-center  ">إرسال</button>
+        <input id="email" type="email" v-model="email" placeholder="أدخل بريدك الإلكتروني" class="input-text w-fit" />
+        <button @click="sendEmail"
+          class="w-fit bg-green-300 hover:bg-green-400 delayed text-center text-black py-1 rounded-full mx-auto px-6 font-bold cursor-pointer flex justify-center  ">إرسال</button>
       </div>
 
       <!-- الخطوة الثانية: إدخال التفاصيل -->
       <div v-else class="pb-4">
         <label for="token" class="block text-sm font-medium  mb-2">الرمز</label>
-        <input
-          id="token"
-          v-model="token"
-          placeholder="أدخل الرمز المرسل"
-          class="input-text"
-        />
+        <input id="token" v-model="token" placeholder="أدخل الرمز المرسل" class="input-text" />
 
         <label for="password" class="block text-sm font-medium text-gray-700 mb-2 mt-4">كلمة المرور الجديدة</label>
-        <input
-          id="password"
-          type="password"
-          v-model="password"
-          placeholder="كلمة المرور الجديدة"
-          class="input-text"
-        />
+        <input id="password" type="password" v-model="password" placeholder="كلمة المرور الجديدة" class="input-text" />
 
         <label for="confirmPassword" class="block text-sm font-medium text-gray-700 mb-2 mt-4">تأكيد كلمة المرور</label>
-        <input
-          id="confirmPassword"
-          type="password"
-          v-model="confirmPassword"
-          placeholder="تأكيد كلمة المرور"
-          class="input-text"
-        />
+        <input id="confirmPassword" type="password" v-model="confirmPassword" placeholder="تأكيد كلمة المرور"
+          class="input-text" />
 
-        <button @click="resetPassword" class="w-fit bg-green-300 hover:bg-green-400 delayed text-center text-black py-1 rounded-full mx-auto px-6 font-bold cursor-pointer flex justify-center">إعادة التعيين</button>
+        <button @click="resetPassword"
+          class="w-fit bg-green-300 hover:bg-green-400 delayed text-center text-black py-1 rounded-full mx-auto px-6 font-bold cursor-pointer flex justify-center">إعادة
+          التعيين</button>
       </div>
-      <Dialog v-model:visible="showDialog" header="نجاح العملية" :closable="false" class="text-center mx-auto flex justify-center" :style="$i18n.locale === 'ar' ? 'direction: rtl' : ''">
-  <p>تم إعادة تعيين كلمة المرور بنجاح!</p>
-  <button
-    @click="$router.push('/login')"
-    class="w-full bg-green-300 hover:bg-green-400 delayed text-center text-black py-1 rounded-full px-6 font-bold cursor-pointer"
-  >
-    موافق
-  </button>
-</Dialog>
+      <Dialog v-model:visible="showDialog" header="نجاح العملية" :closable="false"
+        class="text-center mx-auto flex justify-center" :style="$i18n.locale === 'ar' ? 'direction: rtl' : ''">
+        <p>تم إعادة تعيين كلمة المرور بنجاح!</p>
+        <button @click="$router.push('/login')"
+          class="w-full bg-green-300 hover:bg-green-400 delayed text-center text-black py-1 rounded-full px-6 font-bold cursor-pointer">
+          موافق
+        </button>
+      </Dialog>
 
     </div>
   </div>
@@ -126,7 +106,7 @@ const resetPassword = async () => {
   margin-bottom: 1rem;
 }
 
-.btn-primary {
+.btn-one {
   display: inline-block;
   padding: 0.75rem 1.5rem;
   background-color: #3b82f6;
@@ -137,7 +117,7 @@ const resetPassword = async () => {
   transition: background-color 0.2s;
 }
 
-.btn-primary:hover {
+.btn-one:hover {
   background-color: #2563eb;
 }
 </style>
