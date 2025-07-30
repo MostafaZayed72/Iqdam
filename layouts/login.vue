@@ -6,7 +6,7 @@
         <!-- <Icon @click="toggleSidebar" name="iconamoon:menu-burger-horizontal"
             class="md:hidden text-xl text-white cursor-pointer" /> -->
         <NuxtImg src="/imgs/logo.png" class="w-12 h-12 cursor-pointer bg-white" alt="" style="border-radius: 50%;"
-          @click="navigateTo('/')">
+          @click="navigateTo('/')" />
       </div>
 
       <!-- الروابط في الشاشات الكبيرة -->
