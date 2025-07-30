@@ -1,5 +1,5 @@
 <template>
-  <div class="relative min-h-screen overflow-hidden" @wheel="handleScroll" @touchstart="handleTouchStart"
+  <div class="relative min-h-screen overflow-hidden" 
     @touchend="handleTouchEnd">
     <div class="transition-transform duration-700 ease-out"
       :style="{ transform: `translateY(-${currentIndex * 100}vh)` }">

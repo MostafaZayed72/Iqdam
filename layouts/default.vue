@@ -2,7 +2,14 @@
   <div :class="{ 'dark': isDarkMode }" :style="{ direction: locale === 'ar' ? 'rtl' : 'ltr' }" class="">
 
     <!-- Navbar -->
-    <div class="mb-0 px-4 flex justify-between items-center w-full  py-1  z-50 backdrop-blur-sm bg-white/30 dark:bg-black/30">
+    <div class="mb-0 px-4 flex justify-between items-center w-full  py-1  z-50 backdrop-blur-sm bg-white/30 dark:bg-black/30"  :style="{ 
+    backgroundImage: isDarkMode 
+      ? 'url(/imgs/backgrounds/header.png)' 
+      : 'url(/imgs/backgrounds/headerr.png)',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center'
+  }"
+  >
       <div class="flex items-center gap-4">
         <!-- Burger Icon for Small Screens -->
         <Icon @click="toggleSidebar" name="iconamoon:menu-burger-horizontal" class="lg:hidden text-3xl cursor-pointer" />
