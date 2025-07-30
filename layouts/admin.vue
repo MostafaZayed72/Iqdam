@@ -6,7 +6,7 @@
         <Icon @click="toggleSidebar" name="iconamoon:menu-burger-horizontal"
           class="md:hidden text-xl  cursor-pointer text-white" />
         <NuxtImg src="/imgs/logo.png" class="w-12 h-12 cursor-pointer bg-white" alt="" style="border-radius: 50%;"
-          @click="navigateTo('/admin')">
+          @click="navigateTo('/admin')" />
       </div>
 
       <!-- الروابط في الشاشات الكبيرة -->
