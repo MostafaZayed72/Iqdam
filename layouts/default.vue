@@ -16,7 +16,7 @@
 
         <!-- Logo -->
 <div>
-          <NuxtImg src="/imgs/logo.png" class="w-32 h-32 cursor-pointer" alt="" style="border-radius: 50%;" @click="navigateTo('/')" />
+          <NuxtImg src="/imgs/logo.png" class="w-10 h-10 cursor-pointer bg-white" alt="" style="border-radius: 50%;" @click="navigateTo('/')" />
 
 </div>        <!-- Video Logo -->
 <video
