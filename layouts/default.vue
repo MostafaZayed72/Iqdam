@@ -108,6 +108,7 @@ const navLinks = [
   { to: '/teachers', label: 'Teachers', icon: 'noto:man-teacher-light-skin-tone' },
     { to: '/registration', label: 'Registration', icon: 'ic:twotone-app-registration' },
   { to: '/news', label: 'News', icon: 'material-symbols:breaking-news' },
+  { to: '/questions', label: 'Important questions', icon: 'ic:sharp-help' },
 ];
 
 onMounted(() => {

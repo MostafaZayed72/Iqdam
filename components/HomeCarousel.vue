@@ -28,7 +28,7 @@
       <!-- Slide 2 -->
       <div class="flex flex-col items-center "
         :class="{ 'slide-in-left': currentIndex === 1, 'slide-in-right': currentIndex === 2 }"
-        style="min-height: 100vh; background-image: url('/imgs/home/welcome.png'); background-size: cover">
+        style="min-height: 100vh; background-image: url('/imgs/home/test.jpeg'); background-size: cover">
         <SlidesTowRight class="w-full md:w-[50%]" />
       </div>
 

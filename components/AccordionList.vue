@@ -1,51 +1,35 @@
 <template>
-  <div class="space-y-4">
-    <div v-for="(item, index) in items" :key="index" class="border rounded-lg overflow-hidden shadow-sm  card">
-      <button class="w-full text-right p-4 font-semibold flex justify-between items-center" @click="toggle(index)">
+  <div>
+    <div 
+      v-for="(item, index) in items" 
+      :key="index" 
+      class="border-b"
+    >
+      <!-- العنوان -->
+      <button 
+        @click="$emit('update:modelValue', modelValue === index ? null : index)" 
+        class="w-full text-left p-4 flex justify-between items-center text-lg"
+      >
         {{ item.title }}
-        <span class="ml-2 text-one text-xl">
-          <span v-if="active === index">−</span>
-          <span v-else>+</span>
-        </span>
+        <span>{{ modelValue === index ? '-' : '+' }}</span>
       </button>
-      <transition name="accordion" mode="out-in">
-        <div v-if="active === index" class="px-4 pb-4 ">
-          {{ item.description }}
-        </div>
-      </transition>
+
+      <!-- الوصف -->
+      <div 
+        v-if="modelValue === index" 
+        class="p-4 text-gray-700 whitespace-pre-line bg-second rounded-xl"
+      >
+        {{ item.description }}
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { computed } from 'vue'
-
-const props = defineProps({
+defineProps({
   items: Array,
-  modelValue: [Number, null]
-})
+  modelValue: Number
+});
 
-const emit = defineEmits(['update:modelValue'])
-
-const active = computed({
-  get: () => props.modelValue,
-  set: (val) => emit('update:modelValue', val)
-})
-
-const toggle = (index) => {
-  active.value = active.value === index ? null : index
-}
+defineEmits(['update:modelValue']);
 </script>
-
-<style scoped>
-.accordion-enter-active,
-.accordion-leave-active {
-  transition: all 0.3s ease;
-}
-
-.accordion-enter-from,
-.accordion-leave-to {
-  opacity: 0;
-  max-height: 0;
-}
-</style>
