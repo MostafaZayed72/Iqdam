@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <section class=" bg-gray-50 dark:bg-gray-900 py-12 px-4 text-center ">
+  <div style="background-image: url('/imgs/backgrounds/تواصل معنا.png'); min-height: 100vh; background-size: cover">
+    <section class=" bg-gray-50 dark:bg-gray-900 py-12 px-4 text-center " style="background-image: url('/imgs/backgrounds/تواصل معنا.png');  background-size: cover">
       <h1 class="text-3xl md:text-4xl font-bold text-one dark:text-white mb-8">
         {{ $t('Contact us') }}
       </h1>
@@ -51,14 +51,14 @@ const socialPlatforms = [
   {
     name: 'Twitter',
     url: 'https://x.com/IqdamAcademy',
-    icon: 'logos:twitter',
+    icon: 'hugeicons:new-twitter',
     color: '#1DA1F2'
   },
   {
     name: 'Youtube',
     url: 'https://www.youtube.com/@iqdam_akadimi',
     icon: 'logos:youtube-icon',
-    color: '#FF0000'
+    color: '#f5595a'
   },
   {
     name: 'Snapchat',

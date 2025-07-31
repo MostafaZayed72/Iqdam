@@ -1,11 +1,11 @@
 <template>
-  <div style="background-image: url('/imgs/2.png'); min-height: 100vh; background-size: cover">
+  <div style="background-image: url('/imgs/backgrounds/تواصل معنا.png'); min-height: 100vh; background-size: cover">
     <div class="p-4 max-w-7xl mx-auto">
       <!-- التبويبات -->
-      <div class="flex border-b mb-6">
+      <div class="flex border-b mb-6 bg-second rounded-full">
         <button v-for="(tab, index) in tabs" :key="index" @click="activeTab = index" :class="[
           'py-2 px-4 font-bold',
-          activeTab === index ? 'border-b-4 border-one text-one bg-second rounded-xl' : 'text-gray-500'
+          activeTab === index ? 'border-b-4 border-one text-one underline rounded-xl' : 'text-gray-500'
         ]">
           {{ tab.name }}
         </button>
@@ -67,27 +67,27 @@ const entertainmentPrograms = computed(() => [
   {
     title: t('Educational and recreational trips'),
     description: t('The Academy organizes educational and recreational trips to cultural and natural sites within the Sultanate of Oman to enhance real-life learning'),
-    image: 'https://tripsegypt.net/storage/6614/conversions/rixos-seagate-sharm-ultra-all-inclusive-webp.webp'
+    image: '/imgs/programs/الرحلات التربوية والترفيهية.png'
   },
   {
     title: t('Artistic and theatrical activities'),
     description: t('Workshops for drawing, theater, and Arabic calligraphy develop creativity and reveal students talents in a fun environment'),
-    image: 'https://static.sayidaty.net/styles/1375_scale/public/2024-10/383534.jpg?VersionId=BEu3tFxdzLPnMZqp2_lWK5toc1m97xI.'
+    image: '/imgs/programs/أنشطة فنية ومسرحية.png'
   },
   {
     title: t('Sporting events and competitions'),
     description: t('Organizing internal and external tournaments in various sports (football, tennis, tug of war) to enhance sportsmanship and teamwork'),
-    image: 'https://copew.uobaghdad.edu.iq/wp-content/uploads/sites/23/2023/08/%D8%B1%D9%8A%D8%A7%D8%B6%D9%8A%D8%A9-scaled.jpg'
+    image: '/imgs/programs/فعاليات رياضية ومسابقات.png'
   },
   {
     title: t('Skill and hobby clubs'),
     description: t('Reading, programming, chess, and robotics clubs develop mental skills and break the study routine'),
-    image: 'https://static.sayidaty.net/styles/1375_scale/public/2024-01/313989.jpg'
+    image: '/imgs/programs/فعاليات رياضية ومسابقات.png'
   },
   {
     title: t('Open days and student exhibitions'),
     description: t('Organizing open recreational days where students projects are displayed, with interactive activities for parents and students together'),
-    image: 'https://national.alhussan.edu.sa/userfiles/Open%20day%20(13)_912801767.jpg'
+    image: '/imgs/programs/فعاليات رياضية ومسابقات.png'
   }
 ])
 
@@ -96,17 +96,17 @@ const educationalPrograms = computed(() => [
   {
     title: t('International program for european students'),
     description: t('Aligning Omani curricula with European standards, special support in languages ​​(Arabic and English), and support units in mathematics and science (in English).'),
-    image: '/programs/international-program.png'
+    image: '/imgs/programs/البرنامج الدولي للطلاب الأوروبيين.png'
   },
   {
     title: t('Learn Arabic for non-native speakers'),
     description: t('Through modern and interactive curricula, realistic communication activities, and life situations, at various levels (beginner - intermediate - advanced). We also offer programs for parents (upon request).'),
-    image: '/programs/تعلم اللغة العربية لغير الناطقين بها.png'
+    image: '/imgs/programs/تعلم اللغة العربية لغير الناطقين بها.png'
   },
   {
     title: t('Support for basic educational materials'),
     description: t('Mathematics (flexible curricula combining Arabic and English), Physics and Chemistry (equipped laboratories and experimental activities), Geography (interactive project-based lessons), English (developing reading, writing, speaking and listening)'),
-    image: '/programs/دعم المواد التعليمية الأساسية.png'
+    image: '/imgs/programs/دعم المواد التعليمية الأساسية.png'
   }
 ])
 </script>
