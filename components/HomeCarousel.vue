@@ -26,10 +26,10 @@
       </div>
 
       <!-- Slide 2 -->
-      <div class="flex flex-col items-center "
+      <div class="flex flex-col items-center slide1"
         :class="{ 'slide-in-left': currentIndex === 1, 'slide-in-right': currentIndex === 2 }"
-        style="min-height: 100vh; background-image: url('/imgs/home/test.jpeg'); background-size: cover">
-        <SlidesTowRight class="w-full md:w-[50%]" />
+        >
+        <SlidesTowRight class="w-full md:w-[30%]" />
       </div>
 
       <!-- Slide 3 -->
@@ -47,7 +47,7 @@
       </div>
       <!-- Slide 5 -->
       <div class="min-h-screen flex items-center justify-center overflow-y-auto w-full"
-        style="min-height: 100vh; background-image: url('/imgs//backgrounds/vision.png'); background-size: cover"
+        style="min-height: 100vh; background-image: url('/imgs//home/footer.jpeg'); background-size: cover"
         :class="{ 'slide-in-left': currentIndex === 4, 'slide-in-right': currentIndex === 5 }">
 
         <SlidesFiveCenter />
@@ -225,4 +225,18 @@ div.min-h-screen {
   overflow-y: auto;
   max-height: 100vh;
 }
+
+.slide1 {
+  min-height: 100vh;
+  background-size: cover;
+  background-image: url('/imgs/home/welcome.png'); /* الصورة الكبيرة */
+}
+
+@media (max-width: 768px) {
+  .slide1 {
+    
+    background-image: url('/imgs/home/welcome.jpeg'); 
+  }
+}
+
 </style>
