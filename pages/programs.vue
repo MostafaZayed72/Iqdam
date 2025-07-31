@@ -5,7 +5,7 @@
       <div class="flex border-b mb-6 bg-second rounded-full">
         <button v-for="(tab, index) in tabs" :key="index" @click="activeTab = index" :class="[
           'py-2 px-4 font-bold',
-          activeTab === index ? 'border-b-4 border-one text-one underline rounded-xl' : 'text-gray-500'
+          activeTab === index ? 'border-b-4 border-one text-one underline   text-xl' : 'text-gray-500'
         ]">
           {{ tab.name }}
         </button>

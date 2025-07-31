@@ -1,9 +1,10 @@
 <template>
-  <div class="p-4 max-w-6xl mx-auto">
+  <div style="background-image: url('/imgs/backgrounds/صفحة التسجيل.png'); min-height: 100vh; background-size: cover">
+    <div class="p-4 max-w-6xl mx-auto" >
     <Loader v-if="loader" />
 
     <div v-if="newsItem" class="mb-8">
-      <button @click="goBack" class="mb-4 text-blue-600 hover:underline">← {{ $t('back') }}</button>
+      <button @click="goBack" class="mb-4 text-second hover:underline mt-10 md:mt-20">← {{ $t('back') }}</button>
       <h1 class="text-2xl font-bold mb-2">
         {{ locale === 'ar' ? newsItem.titleAr : newsItem.titleEn }}
       </h1>
@@ -40,6 +41,7 @@
         <NuxtImg :src="lightboxImage" class="w-full max-h-[90vh] object-contain rounded-lg shadow-lg" />
       </div>
     </div>
+  </div>
   </div>
 </template>
 

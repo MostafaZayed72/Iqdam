@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto p-4" style="background-image: url('/imgs/2.png'); background-size: cover;">
+  <div class=" mx-auto p-4" style="background-image: url('/imgs/backgrounds/صفحة التسجيل.png'); min-height: 100vh; background-size: cover">
     <!-- حقل البحث -->
     <input v-model="search" @input="onSearch" placeholder="بحث عن الأخبار..."
       class="border border-gray-300 rounded px-4 py-2 mb-6 w-full max-w-md" />

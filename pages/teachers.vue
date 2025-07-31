@@ -1,11 +1,12 @@
 <template>
-  <div class="p-4 max-w-4xl mx-auto ">
+  <div style="background-image: url('/imgs/backgrounds/about.png'); min-height: 100vh; background-size: cover">
+    <div class="p-4 max-w-4xl mx-auto " >
     <!-- التبويبات -->
-    <div class="flex border-b mb-6 justify-center space-x-4 rtl:space-x-reverse">
+    <div class="flex border-b mb-6 justify-center space-x-4 rtl:space-x-reverse bg-second rounded-full mt-10 md:mt-20">
       <button v-for="(tab, index) in tabs" :key="index" @click="activeTab = index; activeItem = null" :class="[
         'py-2 px-4 font-bold',
         activeTab === index
-          ? 'border-b-4 border-one text-one bg-second rounded-xl'
+          ? 'border-b-4 border-one text-one underline md:text-xl'
           : 'text-gray-500'
       ]">
         {{ tab.name }}
@@ -22,6 +23,7 @@
         <AccordionList :items="selectionCriteria" v-model="activeItem" />
       </div>
     </div>
+  </div>
   </div>
 </template>
 
