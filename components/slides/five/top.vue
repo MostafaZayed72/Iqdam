@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col md:flex-row items-center justify-between bg-gray-100 p-8 rounded-lg shadow-lg py-4">
+  <div class="flex flex-col md:flex-row items-center justify-between bg-yellow-300 p-8 rounded-lg shadow-lg py-4">
     <!-- القسم الأول: النص الدعائي -->
     <div class="w-full md:w-1/2 text-center md:text-left mb-6 md:mb-0 mx-2">
       <h2 class="text-2xl font-bold text-one mb-4">

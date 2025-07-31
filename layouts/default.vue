@@ -19,14 +19,14 @@
           <NuxtImg src="/imgs/logo.png" class="w-10 h-10 cursor-pointer bg-white" alt="" style="border-radius: 50%;" @click="navigateTo('/')" />
 
 </div>        <!-- Video Logo -->
-<video
-  src="/imgs/second-logo.mp4"
+<!-- <video
+  src="/imgs/second-logoo.mp4"
   autoplay
   muted
   loop
   playsinline
-  class="h-12 w-auto rounded-md object-contain"
-/>
+  class="h-12 w-full rounded-md object-contain"
+/> -->
 
       </div>
 
@@ -37,8 +37,8 @@
           :key="link.to"
           class="px-4 py-2 rounded-lg delayed cursor-pointer font-bold hover:text-primary"
           :to="link.to"
-          active-class="text-secondary"
-          exact-active-class="text-secondary underline">
+          active-class="text-one dark:text-second"
+          exact-active-class="text-one dark:text-second  underline">
           {{ $t(link.label) }}
         </NuxtLink>
       </div>
