@@ -31,11 +31,11 @@
       </div>
 
 
-      <div class="links lg:flex items-center gap-4 hidden">
+      <div class="links lg:flex items-center gap-4 hidden ">
         <NuxtLink
           v-for="link in navLinks"
           :key="link.to"
-          class="px-4 py-2 rounded-lg delayed cursor-pointer font-bold hover:text-primary"
+          class="px-4 py-2 rounded-lg delayed cursor-pointer font-bold hover:text-primary bg-second dark:bg-one"
           :to="link.to"
           active-class="text-one dark:text-second"
           exact-active-class="text-one dark:text-second  underline">
