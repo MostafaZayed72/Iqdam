@@ -23,7 +23,7 @@ const updateImage = () => {
       : '/imgs/home/parent.png'; // عربي + شاشة كبيرة
   } else {
     currentImage.value = isSmallScreen 
-      ? '/imgs/home/visionmoen.jpeg'   // إنجليزي + شاشة صغيرة
+      ? '/imgs/home/parentmoen.jpeg'   // إنجليزي + شاشة صغيرة
       : '/imgs/home/parenten.png'; // إنجليزي + شاشة كبيرة
   }
 };

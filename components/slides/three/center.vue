@@ -19,11 +19,11 @@ const updateImage = () => {
 
   if (locale.value === 'ar') {
     currentImage.value = isSmallScreen 
-      ? '/imgs/home/visionmoar.png'   // عربي + شاشة صغيرة
+      ? '/imgs/home/visionmoar.jpeg'   // عربي + شاشة صغيرة
       : '/imgs/home/vision.png'; // عربي + شاشة كبيرة
   } else {
     currentImage.value = isSmallScreen 
-      ? '/imgs/home/visionmoen.png'   // إنجليزي + شاشة صغيرة
+      ? '/imgs/home/visionmoen.jpeg'   // إنجليزي + شاشة صغيرة
       : '/imgs/home/visionen.png'; // إنجليزي + شاشة كبيرة
   }
 };

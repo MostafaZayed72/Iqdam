@@ -8,7 +8,7 @@
       <!-- العنوان -->
       <button 
         @click="$emit('update:modelValue', modelValue === index ? null : index)" 
-        class="w-full text-left p-4 flex justify-between items-center text-lg"
+        class="w-full text-start p-4 flex justify-between items-center text-lg"
       >
         {{ item.title }}
         <span>{{ modelValue === index ? '-' : '+' }}</span>
