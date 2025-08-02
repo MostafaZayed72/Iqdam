@@ -82,12 +82,12 @@ const entertainmentPrograms = computed(() => [
   {
     title: t('Skill and hobby clubs'),
     description: t('Reading, programming, chess, and robotics clubs develop mental skills and break the study routine'),
-    image: '/imgs/programs/فعاليات رياضية ومسابقات.png'
+    image: '/imgs/programs/أندية مهارية وهوايات.png'
   },
   {
     title: t('Open days and student exhibitions'),
     description: t('Organizing open recreational days where students projects are displayed, with interactive activities for parents and students together'),
-    image: '/imgs/programs/فعاليات رياضية ومسابقات.png'
+    image: '/imgs/programs/أيام مفتوحة ومعارض طلابية.png'
   }
 ])
 
