@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div style="background-image: url('/imgs/backgrounds/صفحة التسجيل.png'); min-height: 100vh; background-size: cover">
     <div class="min-h-screen flex items-center justify-center px-4  mx-auto">
-      <div class="w-full max-w-2xl card rounded-xl shadow-xl border-4  p-8 ">
+      <div class="w-full max-w-2xl card rounded-xl shadow-xl border-4  p-8  mt-10">
         <h1 class="text-2xl font-bold mb-6 text-center text-one dark:text-white">
           {{ $t('Register a new student') }}
         </h1>

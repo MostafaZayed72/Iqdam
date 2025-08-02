@@ -1,7 +1,7 @@
 <template>
   <div class="h-screen flex flex-col justify-center items-center"
-  style="min-height: 100vh; background-image: url('/imgs//backgrounds/features.png'); background-size: cover" >
-    <v-carousel :height="carouselHeight" show-arrows="false" cycle hide-delimiter-background v-if="locale === 'ar'"  style="direction: ltr;">
+  style="min-height: 100vh; background-image: url('/imgs//backgrounds/المميزات.png'); background-size: cover" >
+    <v-carousel :height="carouselHeight" show-arrows="false" cycle hide-delimiter-background v-if="locale === 'ar'"  style="direction: rtl;">
       <v-carousel-item
         v-for="(image, index) in imagesAr"
         :key="index"
@@ -15,7 +15,7 @@
         </div>
       </v-carousel-item>
     </v-carousel>
-    <v-carousel :height="carouselHeight" show-arrows="false" cycle hide-delimiter-background style="direction: ltr;" v-else>
+    <v-carousel :height="carouselHeight" show-arrows="false" cycle hide-delimiter-background style="direction: rtl;" v-else>
       <v-carousel-item
         v-for="(image, index) in imagesEn"
         :key="index"
