@@ -26,7 +26,7 @@
         </form>
       </div>
     </div>
-    <payment class="my-10" />
+    <payment class="mt-10 pb-10" />
   </div>
 </template>
 

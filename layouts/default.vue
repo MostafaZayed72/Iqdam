@@ -106,7 +106,7 @@ const navLinks = [
   { to: '/programs', label: 'Programs', icon: 'material-symbols:barcode-reader-outline' },
   { to: '/contact', label: 'Contact us', icon: 'ic:outline-connect-without-contact' },
   { to: '/teachers', label: 'Teachers', icon: 'noto:man-teacher-light-skin-tone' },
-    { to: '/registration', label: 'Registration', icon: 'ic:twotone-app-registration' },
+    { to: '/prices', label: 'Subscription plans', icon: 'ic:twotone-app-registration' },
   { to: '/news', label: 'News', icon: 'material-symbols:breaking-news' },
   { to: '/questions', label: 'Important questions', icon: 'ic:sharp-help' },
   { to: '/living-in-oman', label: 'The importance of living in Oman', icon: 'material-symbols:family-home-rounded' },

@@ -26,7 +26,7 @@ const { t } = useI18n()
 const socialPlatforms = [
   {
     name: 'Whatsapp',
-    url: 'https://wa.me/0096897158937',
+    url: 'https://wa.me/96898179514',
     icon: 'logos:whatsapp-icon',
     color: '#25D366'
   },
