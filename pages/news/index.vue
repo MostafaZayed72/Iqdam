@@ -28,12 +28,12 @@
     <div class="flex justify-center gap-4 mt-8" v-if="!loader && newsItems.length">
       <button @click="prevPage" :disabled="currentPage === 1"
         class="bg-gray-200 px-4 py-1 rounded disabled:opacity-50 text-black">
-        ⬅ {{ $t('Previous') }}
+         {{ $t('Previous') }}
       </button>
       <span class="bg-one py-2 px-2 rounded-full text-white">{{ $t('Page') }} {{ currentPage }}</span>
       <button @click="nextPage" :disabled="!hasMore"
         class="bg-gray-200 px-4 py-1 rounded disabled:opacity-50 text-black">
-        {{ $t('Next') }} ➡
+        {{ $t('Next') }}  
       </button>
     </div>
   </div>

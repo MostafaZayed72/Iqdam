@@ -73,7 +73,7 @@ const entertainmentPrograms = computed(() => [
     title: t('Accommodation in a private academy resort'),
     description: t('Providing food, drinks, and accommodation for the student, staying within a fully integrated educational resort offers a unique experience that combines comfort, education, and proper nutrition. It provides a safe and well-equipped environment that helps students focus on their studies and develop their skills in a calm and comfortable atmosphere. The resort includes comfortable, air-conditioned accommodation with healthy and varied meals that meet students’ daily nutritional needs. Clean water and beverages are available throughout the day, along with specialized educational programs aimed at developing academic and behavioral skills. This feature ensures mental and psychological stability for students, positively reflecting on their academic achievement and personal growth.'),
     image: '/imgs/features/77.png',
-    icon: '/imgs/features/programs.png'
+    icon: '/imgs/features/hotel.png'
   }
 ])
 </script>
