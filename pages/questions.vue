@@ -20,108 +20,98 @@ const activeItem = ref(null);
 
 const selectionCriteria = computed(() => [
   {
-    title: 'أين تقع أكاديمية إقدام ؟',
-    description: 'تقع أكاديمية إقدام في سلطنة عمان في ولاية مسقط',
+    title: t("Where is Iqdam Academy located?"),
+    description: t("Iqdam Academy is located in the Sultanate of Oman, in the Muscat Governorate."),
   },
   {
-    title: 'ما هو الهدف من برنامج أكاديمية إقدام ؟',
-    description: `رفع الكفاءة اللغوية في اللغة العربية
-1. من خلال معايشة يومية وممارسة عملية داخل بيئة ناطقة وداعمة لتعلّم اللغة العربية
+    title: t("What is the goal of the Iqdam Academy program?"),
+    description: t(`Enhancing Arabic language proficiency:
+1. Immersive daily practice within an Arabic-speaking environment
 
-2. تقوية الطالب أكاديميًا في المواد الأساسية
-خاصة في الرياضيات، الفيزياء، الكيمياء، واللغة الإنجليزية ، عبر خطط تدريسية مدروسة 
+2. Strengthening academic performance in core subjects (Mathematics, Physics, Chemistry, English) through structured teaching plans
 
-3. غرس القيم الإيمانية التربوية والسلوكية
-من خلال الحلقات القرانية و البرامج التربوية الموجهة لتعزيز الأخلاق، والاحترام، والانضباط، والعمل الجماعي
+3. Instilling moral and behavioral values via Quranic sessions and educational programs that promote ethics, respect, discipline, and teamwork
 
-4. تعزيز الاستقلالية والاعتماد على النفس
-عبر نظام الإقامة، يتعلم الطالب ترتيب أموره الشخصية والاعتماد على ذاته في المهام اليومية
+4. Encouraging independence and self‑reliance through residential living, teaching students to manage daily personal tasks autonomously
 
-5. تنمية المهارات الشخصية والحياتية
-مثل مهارات التواصل، القيادة، التفكير النقدي، حل المشكلات، وإدارة الوقت
+5. Developing personal and life skills: communication, leadership, critical thinking, problem‑solving, and time management
 
-6. تهيئة الطالب للتفوق الدراسي والتحصيل العالي
-من خلال بيئة محفزة، واهتمام فردي، وتقييم مستمر لمستوى الطالب وتطوره.
+6. Preparing students for academic excellence with an encouraging environment, individual attention, and ongoing progress evaluation
 
-7. بناء شخصية متوازنة وواثقة
-عبر الدمج بين التعليم الأكاديمي، الأنشطة الترفيهية، الرحلات التعليمية، والمواقف الحياتية الواقعية`,
+7. Building a balanced and confident personality by combining academics, recreational activities, educational trips, and real‑life scenarios`),
   },
   {
-    title: 'كم مدة البرنامج؟',
-    description: 'البرنامج ينقسم إلى ثلاثة مستويات ، المستوى الواحد مدته ثلاثة أشهر ينتهي الطالب من مستوى وينتقل إلى مستوى أعلى',
+    title: t("How long is the program?"),
+    description: t("The program is divided into three levels, each lasting three months. Upon successful completion of one level, the student progresses to the next."),
   },
   {
-    title: 'هل توفر الأكاديمية الإقامة لأولياء الأمور ؟',
-    description: 'نعم ممكن أن توفر الأكاديمية السكن لأولياء الأمور الذين يرغبون بالإقامة في سلطنة عمان مع إمكانية توفير فيزة الدخول لهم لسلطنة عمان',
+    title: t("Does the academy provide accommodation for parents?"),
+    description: t("Yes, the academy can provide housing for parents wishing to stay in Oman, and may assist with visa arrangements for them."),
   },
   {
-    title: 'هل يشمل البرنامج الإقامة والطعام؟',
-    description: 'نعم، البرنامج يوفر سكنًا داخليًا مريحًا ومتكاملاً مع ثلاث وجبات يوميًا، بالإضافة إلى خدمات النظافة والرقابة المستمرة.',
+    title: t("Does the program include accommodation and meals?"),
+    description: t("Yes, the program includes secure internal accommodation with three meals per day, plus housekeeping and continuous supervision."),
   },
   {
-    title: 'ما هي الفئة العمرية المستهدفة؟',
-    description: 'يستهدف البرنامج الطلاب من عمر 13 سنة إلى 19 سنة.',
+    title: t("What age group is targeted?"),
+    description: t("The program is designed for students aged 13 to 19."),
   },
   {
-    title: 'ما المنهج المستخدم في تدريس اللغة العربية؟',
-    description: 'يعتمد البرنامج على مناهج عالمية معتمدة لتعليم العربية للناطقين بغيرها، مع دعم بمواد سمعية وبصرية وتطبيقات تفاعلية وأنشطة تواصلية.',
+    title: t("What curriculum is used for teaching Arabic?"),
+    description: t("The program uses internationally recognized curricula for Arabic as a second language, enhanced with audio‑visual materials, interactive apps, and communicative activities."),
   },
   {
-    title: 'هل يحصل الطالب على شهادة بعد نهاية البرنامج؟',
-    description: 'نعم، يحصل الطالب على شهادة معتمدة من الأكاديمية توضح المستوى الذي أتمّه وعدد ساعات الدراسة.',
+    title: t("Does the student receive a certificate upon program completion?"),
+    description: t("Yes, students receive an accredited certificate from the academy specifying their completed level and number of study hours."),
   },
   {
-    title: 'هل هناك اختبارات تحديد مستوى؟',
-    description: 'نعم، يتم عمل اختبار تحديد مستوى قبل بدء الدراسة، ويعاد الاختبار بعد كل مستوى لقياس التقدم',
+    title: t("Are placement tests conducted?"),
+    description: t("Yes, a placement test is given before starting the program, and retaken after each level to track progress."),
   },
   {
-    title: 'ما هي الأنشطة غير الصفية التي تُقدم للطلاب؟',
-    description: `رحلات تعليمية وثقافية
-زيارات ميدانية
-أنشطة ترفيهية ورياضية (تعلم السباحة وكرة القدم واللياقة البدنية ..)
-لقاءات لغوية مع ناطقين بالعربية`,
+    title: t("What extracurricular activities are offered?"),
+    description: t("Includes educational and cultural trips, field visits, sports and recreational activities like swimming, football, fitness, and language‑cultural meetings with Arabic speakers."),
   },
   {
-    title: 'ما هي الدورات والمواد التي يدرسها الطالب؟',
-    description: `المواد الدراسية هي:
-اللغة العربية ـ القران الكريم ـ الحديث الشريف ـ السيرة النبوية ـ الفقة ـ اللغة الإنجليزية ـ الرياضيات ـ الفيزياء ـ الكيمياء
+    title: t("What courses and subjects does the student study?"),
+    description: t(`Academic subjects:
+Arabic – Quran – Prophetic Hadith – Seerah – Islamic Jurisprudence – English – Mathematics – Physics – Chemistry
 
-الدورات التدريبية هي:
-أولاً: تطوير الذات والمهارات الشخصية
-1. مهارات التواصل الفعال - لتعلم التحدث بثقة والاستماع الجيد والتعبير عن الذات
-2. إدارة الوقت وتنظيم المهام - لبناء روتين ناجح وزيادة الإنتاجية
-3. الذكاء العاطفي والتعامل مع الآخرين - لفهم الذات والآخرين وتحسين العلاقات`,
+Training courses:
+• Personal development: effective communication, time management, and task organization
+• Emotional intelligence and interpersonal skills for better self‑awareness and relationships`),
   },
   {
-    title: 'هل البرنامج آمن للطلاب الدوليين؟',
-    description: 'نعم، الأكاديمية توفر رقابة دائمة وخدمات طبية طارئة، ومشرفين على مدار الساعة لضمان سلامة الطلاب وراحتهم.',
+    title: t("Is the program safe for international students?"),
+    description: t("Yes, the academy provides 24‑hour supervision, emergency medical services, and continuous monitoring to ensure student well‑being."),
   },
   {
-    title: 'هل يمكن للطلاب التواصل مع أهاليهم خلال البرنامج؟',
-    description: 'نعم، يمكن للطلاب استخدام الإنترنت المتوفر في السكن والتواصل مع أهاليهم في أي وقت.',
+    title: t("Can students keep in touch with their families during the program?"),
+    description: t("Yes, students can use the internet provided in the residence to contact their families at any time."),
   },
   {
-    title: 'هل الأكاديمية تستقبل الطلاب من جميع الدول؟',
-    description: 'نعم، الأكاديمية تستقبل الطلاب من مختلف أنحاء العالم، وتوفر لهم الدعم اللغوي والتأقلم مع البيئة.',
+    title: t("Does the academy accept students from all countries?"),
+    description: t("Yes, the academy welcomes students from around the world and offers linguistic and cultural support to help them adapt."),
   },
   {
-    title: 'هل هناك توصيل من المطار إلى الأكاديمية؟',
-    description: 'نعم، يمكن تنسيق خدمة الاستقبال من المطار إلى مقر الأكاديمية للطلاب القادمين من الخارج',
+    title: t("Is airport pickup available?"),
+    description: t("Yes, airport pickup can be arranged from the airport to the academy premises for international arrivals."),
   },
   {
-    title: 'هل الأكاديمية توفر الفيزا إلى سلطنة عمان؟',
-    description: 'نعم توفر الأكاديمية للطلاب المشتركين معها من خارج سلطنة عمان تأشيرة دخول للسلطنة مدتها سنة كاملة يستطيع الطالب الإقامة بها طيلة مدة البرنامج',
+    title: t("Does the academy provide a visa to Oman?"),
+    description: t("Yes, the academy issues a one‑year entry visa for students from outside Oman, valid for the full duration of the program."),
   },
   {
-    title: 'ما هي وجهات الرحلات المقررة في الأكاديمية؟',
-    description: `تنقسم الرحلات في الأكاديمية إلى قسمين:
-1. رحلات أسبوعية: للمعالم السياحية والأثرية في سلطنة عمان مثل (الجبل الأخضر ومتحف عمان عبر الزمان وأماكن الفعاليات)
-2. رحلات دورية: عند انتهاء كل مستوى دراسي (كل ثلاثة أشهر) خارج سلطنة عمان مثل (مكة المكرمة والمدينة المنورة والإمارات العربية المتحدة ...)`,
+    title: t("What trip destinations are planned by the academy?"),
+    description: t(`The academy organizes:
+1. Weekly in‑country trips to Omani attractions like the Green Mountain, Oman Through Time Museum, and event sites
+2. Periodic trips after each level outside Oman to places like Mecca, Medina, and the UAE.`),
   },
   {
-    title: 'كم هي تكاليف الدراسة في الأكاديمية؟',
-    description: 'حرصًا منا على أن يكون التعليم متاحًا للجميع، صممنا برامجنا برسوم مدروسة تراعي مختلف الأوضاع المادية، لتكون الفرصة متاحة لكل من يطمح إلى التعلم والنمو، دون أن تقف التكاليف عائقًا في طريقه',
-  },
+    title: t("What are the program costs?"),
+    description: t("We strive to make our programs affordable for all. Fees are carefully structured to accommodate various financial situations so that education remains accessible without being a burden."),
+  }
 ]);
+
 
 </script>

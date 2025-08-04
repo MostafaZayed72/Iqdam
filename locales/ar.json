@@ -128,6 +128,63 @@
   "Profile Picture":"الصورة الشخصية",
   "You have successfully subscribed":"تم الإشتراك بنجاح",
   "Close":"إغلاق",
-  "Submitting...":"جارِ الإرسال"
+  "Submitting...":"جارِ الإرسال",
+  "importance_title": "أهمية الإقامة والأمان في سلطنة عمان",
+  "importance_description": "1. بيئة آمنة ومستقرة\nعُمان تُعد من أكثر الدول أمانًا واستقرارًا سياسيًا في المنطقة، مما يوفر بيئة مطمئنة للطلاب وأسرهم.\n\n2. نظام تعليمي متطور\nتتميز المؤسسات التعليمية في عُمان بجودة التعليم واعتماد مناهج حديثة تتماشى مع المعايير الدولية.\n\n3. تنوع ثقافي وتسامح ديني\nيعيش في السلطنة مجتمع متعدد الجنسيات يتميز بالتسامح والاحترام، مما يعزز من تجربة التعلم والانفتاح الثقافي.\n\n4. تكاليف معيشة معتدلة\nمقارنةً بدول الخليج الأخرى، توفر عُمان مستوى معيشة جيد بتكاليف مناسبة للطلاب والعائلات.\n\n5. لغة عربية رسمية وإنجليزية واسعة الانتشار\nتُعد السلطنة بيئة مثالية لتعلّم اللغة العربية، مع استخدام واسع للغة الإنجليزية في التعليم والمجتمع.\n\n6. موقع جغرافي استراتيجي\nموقع عُمان يجعلها بوابة مهمة للمنطقة، وتتيح سهولة الوصول إلى أسواق ودول متعددة.",
+  "Where is Iqdam Academy located?": "أين تقع أكاديمية إقدام ؟",
+  "Iqdam Academy is located in the Sultanate of Oman, in the Muscat Governorate.": "تقع أكاديمية إقدام في سلطنة عمان في ولاية مسقط",
 
+  "What is the goal of the Iqdam Academy program?": "ما هو الهدف من برنامج أكاديمية إقدام ؟",
+  "Enhancing Arabic language proficiency:\n1. Immersive daily practice within an Arabic-speaking environment\n\n2. Strengthening academic performance in core subjects (Mathematics, Physics, Chemistry, English) through structured teaching plans\n\n3. Instilling moral and behavioral values via Quranic sessions and educational programs that promote ethics, respect, discipline, and teamwork\n\n4. Encouraging independence and self‑reliance through residential living, teaching students to manage daily personal tasks autonomously\n\n5. Developing personal and life skills: communication, leadership, critical thinking, problem‑solving, and time management\n\n6. Preparing students for academic excellence with an encouraging environment, individual attention, and ongoing progress evaluation\n\n7. Building a balanced and confident personality by combining academics, recreational activities, educational trips, and real‑life scenarios": "رفع الكفاءة اللغوية في اللغة العربية\n1. من خلال معايشة يومية وممارسة عملية داخل بيئة ناطقة وداعمة لتعلّم اللغة العربية\n\n2. تقوية الطالب أكاديميًا في المواد الأساسية (الرياضيات، الفيزياء، الكيمياء، اللغة الإنجليزية) عبر خطط تدريسية مدروسة\n\n3. غرس القيم الإيمانية والسلوكية عبر الحلقات القرآنية والبرامج التربوية التي تعزز الأخلاق والاحترام والانضباط والعمل الجماعي\n\n4. تعزيز الاستقلالية والاعتماد على النفس عبر نظام الإقامة الذي يُعلم الطالب ترتيب أموره الشخصية وإدارة مهامه اليومية\n\n5. تنمية المهارات الشخصية والحياتية: التواصل، القيادة، التفكير النقدي، حل المشكلات، وإدارة الوقت\n\n6. تهيئة الطالب للتفوق الدراسي عبر بيئة محفزة واهتمام فردي وتقييم مستمر لمستواه وتطوره\n\n7. بناء شخصية متوازنة وواثقة عبر الدمج بين التعليم الأكاديمي والأنشطة الترفيهية والرحلات التعليمية والمواقف الحياتية الواقعية",
+
+  "How long is the program?": "كم مدة البرنامج؟",
+  "The program is divided into three levels, each lasting three months. Upon successful completion of one level, the student progresses to the next.": "البرنامج ينقسم إلى ثلاثة مستويات، كل مستوى مدته ثلاثة أشهر. بعد إتمام المستوى ينتقل الطالب إلى المستوى التالي.",
+
+  "Does the academy provide accommodation for parents?": "هل توفر الأكاديمية الإقامة لأولياء الأمور ؟",
+  "Yes, the academy can provide housing for parents wishing to stay in Oman, and may assist with visa arrangements for them.": "نعم، يمكن للأكاديمية توفير السكن لأولياء الأمور الذين يرغبون بالإقامة في سلطنة عمان، مع المساعدة في ترتيبات الفيزا لهم.",
+
+  "Does the program include accommodation and meals?": "هل يشمل البرنامج الإقامة والطعام؟",
+  "Yes, the program includes secure internal accommodation with three meals per day, plus housekeeping and continuous supervision.": "نعم، البرنامج يشمل سكنًا داخليًا آمنًا مع ثلاث وجبات يوميًا بالإضافة إلى خدمات النظافة والرقابة المستمرة.",
+
+  "What age group is targeted?": "ما هي الفئة العمرية المستهدفة؟",
+  "The program is designed for students aged 13 to 19.": "البرنامج مخصص للطلاب من عمر 13 إلى 19 سنة.",
+
+  "What curriculum is used for teaching Arabic?": "ما المنهج المستخدم في تدريس اللغة العربية؟",
+  "The program uses internationally recognized curricula for Arabic as a second language, enhanced with audio‑visual materials, interactive apps, and communicative activities.": "البرنامج يعتمد على مناهج عالمية معتمدة لتعليم العربية لغير الناطقين بها، مدعمة بمواد سمعية وبصرية وتطبيقات تفاعلية وأنشطة تواصلية.",
+
+  "Does the student receive a certificate upon program completion?": "هل يحصل الطالب على شهادة بعد نهاية البرنامج؟",
+  "Yes, students receive an accredited certificate from the academy specifying their completed level and number of study hours.": "نعم، يحصل الطالب على شهادة معتمدة من الأكاديمية توضح المستوى الذي أكمله وعدد ساعات الدراسة.",
+
+  "Are placement tests conducted?": "هل هناك اختبارات تحديد مستوى؟",
+  "Yes, a placement test is given before starting the program, and retaken after each level to track progress.": "نعم، يتم عمل اختبار تحديد مستوى قبل بدء البرنامج، ويُعاد بعد كل مستوى لقياس التقدم.",
+
+  "What extracurricular activities are offered?": "ما هي الأنشطة غير الصفية التي تُقدم للطلاب؟",
+  "Includes educational and cultural trips, field visits, sports and recreational activities like swimming, football, fitness, and language‑cultural meetings with Arabic speakers.": "يشمل البرنامج رحلات تعليمية وثقافية، زيارات ميدانية، أنشطة ترفيهية ورياضية مثل السباحة وكرة القدم واللياقة البدنية، ولقاءات لغوية مع ناطقين بالعربية.",
+
+  "What courses and subjects does the student study?": "ما هي الدورات والمواد التي يدرسها الطالب؟",
+  "Academic subjects:\nArabic – Quran – Prophetic Hadith – Seerah – Islamic Jurisprudence – English – Mathematics – Physics – Chemistry\n\nTraining courses:\n• Personal development: effective communication, time management, and task organization\n• Emotional intelligence and interpersonal skills for better self‑awareness and relationships": "المواد الدراسية:\nاللغة العربية – القرآن الكريم – الحديث الشريف – السيرة النبوية – الفقه – اللغة الإنجليزية – الرياضيات – الفيزياء – الكيمياء\n\nالدورات التدريبية:\n• تطوير الذات: مهارات التواصل الفعال، إدارة الوقت وتنظيم المهام\n• الذكاء العاطفي والمهارات الاجتماعية لتحسين الوعي الذاتي والعلاقات مع الآخرين",
+
+  "Is the program safe for international students?": "هل البرنامج آمن للطلاب الدوليين؟",
+  "Yes, the academy provides 24‑hour supervision, emergency medical services, and continuous monitoring to ensure student well‑being.": "نعم، الأكاديمية توفر إشرافًا دائمًا على مدار الساعة وخدمات طبية طارئة ومتابعة مستمرة لضمان سلامة الطلاب.",
+
+  "Can students keep in touch with their families during the program?": "هل يمكن للطلاب التواصل مع أهاليهم خلال البرنامج؟",
+  "Yes, students can use the internet provided in the residence to contact their families at any time.": "نعم، يمكن للطلاب استخدام الإنترنت المتوفر في السكن للتواصل مع أهاليهم في أي وقت.",
+
+  "Does the academy accept students from all countries?": "هل الأكاديمية تستقبل الطلاب من جميع الدول؟",
+  "Yes, the academy welcomes students from around the world and offers linguistic and cultural support to help them adapt.": "نعم، الأكاديمية تستقبل الطلاب من مختلف دول العالم وتوفر لهم الدعم اللغوي والثقافي لمساعدتهم على التأقلم.",
+
+  "Is airport pickup available?": "هل هناك توصيل من المطار إلى الأكاديمية؟",
+  "Yes, airport pickup can be arranged from the airport to the academy premises for international arrivals.": "نعم، يمكن ترتيب خدمة التوصيل من المطار إلى الأكاديمية للطلاب القادمين من الخارج.",
+
+  "Does the academy provide a visa to Oman?": "هل الأكاديمية توفر الفيزا إلى سلطنة عمان؟",
+  "Yes, the academy issues a one‑year entry visa for students from outside Oman, valid for the full duration of the program.": "نعم، تصدر الأكاديمية تأشيرة دخول لمدة سنة كاملة للطلاب القادمين من خارج سلطنة عمان، صالحة طوال فترة البرنامج.",
+
+  "What trip destinations are planned by the academy?": "ما هي وجهات الرحلات المقررة في الأكاديمية؟",
+  "The academy organizes:\n1. Weekly in‑country trips to Omani attractions like the Green Mountain, Oman Through Time Museum, and event sites\n2. Periodic trips after each level outside Oman to places like Mecca, Medina, and the UAE.": "تنظم الأكاديمية:\n1. رحلات أسبوعية إلى معالم سياحية في سلطنة عمان مثل الجبل الأخضر ومتحف عمان عبر الزمان وأماكن الفعاليات\n2. رحلات دورية بعد كل مستوى دراسي خارج عمان مثل مكة المكرمة والمدينة المنورة والإمارات العربية المتحدة.",
+
+  "What are the program costs?": "كم هي تكاليف الدراسة في الأكاديمية؟",
+  "We strive to make our programs affordable for all. Fees are carefully structured to accommodate various financial situations so that education remains accessible without being a burden.": "نحرص على أن تكون برامجنا في متناول الجميع. صُممت الرسوم بشكل مدروس لتناسب مختلف الأوضاع المادية حتى تبقى فرصة التعليم متاحة دون عبء مالي."
 }
+
+
+
