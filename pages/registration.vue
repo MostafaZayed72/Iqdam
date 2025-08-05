@@ -80,8 +80,8 @@ const config = useRuntimeConfig()
 const uploadingImage = ref(false)
 const showDialog = ref(false)
 
-const CLOUD_NAME = config.public.CLOUDINARY_CLOUD_NAME
-const UPLOAD_PRESET = config.public.CLOUDINARY_UPLOAD_PRESET
+const CLOUD_NAME = "dmsauhps3"
+const UPLOAD_PRESET = "nuxt_unsigned"
 
 const form = ref({
   studentName: '',
