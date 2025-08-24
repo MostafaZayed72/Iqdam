@@ -99,8 +99,8 @@ const form = ref({
 const fields = [
   { label: 'Student Name', model: 'studentName', type: 'text' },
   { label: 'Guardian Name', model: 'guardianName', type: 'text' },
-  { label: 'Primary Phone Number', model: 'primaryPhoneNumber', type: 'tel', placeholder: 'e.g. +96812345678' },
-  { label: 'Backup Phone Number', model: 'backupPhoneNumber', type: 'tel', placeholder: 'e.g. +96898765432' },
+  { label: 'Primary Phone Number (with country key)', model: 'primaryPhoneNumber', type: 'tel', placeholder: 'e.g. +96812345678' },
+  { label: 'Backup Phone Number (with country key)', model: 'backupPhoneNumber', type: 'tel', placeholder: 'e.g. +96898765432' },
   { label: 'Nationality', model: 'nationality', type: 'text' },
   { label: 'Current Residence', model: 'currentResidence', type: 'text' },
   { label: 'Age', model: 'age', type: 'number' },
