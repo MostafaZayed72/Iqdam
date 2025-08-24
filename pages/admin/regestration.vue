@@ -25,7 +25,7 @@
     <!-- جدول الطلاب -->
     <div class="overflow-x-auto">
       <table class="w-full border text-sm min-w-[900px]">
-        <thead class="bg-gray-100">
+        <thead class="bg-gray-100 text-black">
           <tr>
             <th v-for="key in tableHeaders" :key="key" class="border p-2">
               {{ getLabel(key) }}
